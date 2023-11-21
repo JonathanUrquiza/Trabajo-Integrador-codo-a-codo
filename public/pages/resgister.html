@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/octoface.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style/components/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/index.css">
+    <title></title>
+</head>
+
+<body>
+    <header><!-- Inicio de header -->
+        <nav class="navbar navbar-expand-md navbar-dark" aria-label="Fourth navbar example">
+            <picture class="navbar__logo">
+                <a href="./Index.html">
+                    <img src="../multimedia/branding/logo_light_horizontal.svg" alt="">
+                </a>
+            </picture>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarsExample04">
+                <ul class="navbar-nav navbar__menu">
+                    <li class="nav__item dropdown with-submenu">
+                        <a class="nav__link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">SHOP</a>
+                        <ul class=" submenu">
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="shop/shop.html">Funkos</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="shop/remeras.html">Remeras</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="shop/llaveros.html">Llaveros</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" aria-current="page" href="contact.html">CONTACTO</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="login.html">LOGIN</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="shop/cart.html">CART</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link"><img src="../multimedia/icons/cart-icon.svg" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header><!-- Fin de header -->
+    <main class="container">
+        <section class="row text-center">
+            <h1>CREA TU CUENTA</h1>
+            <p>Completa el formulario para ser parte del mundo de los Funkos.</p>
+        </section>
+        <section class="row mb-3 formulario">
+            <form action="resgister.html" method="post" id="register"
+                class="col-10 offset-1 col-sm-8  col-md-6 offset-md-1 shadow-lg text-white bg-dark rounded-4 pb-3">
+                <fieldset class="d-flex flex-column align-items-center justify-content-center w-100 mt-4">
+                    <label for="name-label" id="name-label"><input type="text" id="name" name="name" required
+                            placeholder="Nombre"></label>
+                    <label for="" id="last-name-label"><input type="text" id="last-name" name="last-name" required
+                            placeholder="Apellido"></label>
+                    <label id="email-label"><input id="email" name="email" type="email" placeholder="Ingrese su email"
+                            required /></label>
+                    <label id="password-label"><input id="password" name="password" type="password" minlength="1"
+                            maxlength="10" placeholder="password" /></label>
+                    <label id="password-label"><input id="password" name="password" type="password" minlength="1"
+                            maxlength="10" placeholder="Repita su password" /></label>
+                </fieldset>
+                <fieldset class="col-10 offset-1 col-sm-8  col-md-6 offset-md-1">
+                    <input type="submit" class="btn btn-dark" value="enviar" id="submit" />
+                    <input type="checkbox" name="" id="submit"><label for="acepto" class="text-truncate">Acepto los
+                        terminos y condiciones</label>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <section class="d-flex flex-column justify-content-start align-items-center px-4 py-5">
+            <nav class="d-flex flex-column flex-lg-row align-items-center justify-content-between w-100">
+                <ul class="list-unstyled">
+                    <li><a href="shop/shop.html" class="nav_link">SHOP</a></li>
+                    <li><a href="resgister.html" class="nav-link">REGISTRARSE</a></li>
+                    <li><a href="login.html" class="nav_link">INGRESAR</a></li>
+                    <li><a href="contact.html" class="nav_link">CONTACTO </a></li>
+                </ul>
+                <picture>
+                    <img class="logo" src="../multimedia/branding/isotype.svg" alt="Iso tipo de la marca funkoshop">
+                </picture>
+            </nav>
+            <P>All rights reserved 2023 -Funkoshop & Grupo 2 Comisión 23569</P>
+        </section>
+    </footer>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../src/module/register.js"></script>
+</body>
+
+</html>

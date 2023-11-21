@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../multimedia/octoface.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../style/components/bootstrap.min.css">
+    <link rel="stylesheet" href="../../style/index.css">
+    <title></title>
+</head>
+
+<body>
+    <header><!-- Inicio de header -->
+        <nav class="navbar navbar-expand-md navbar-dark" aria-label="Fourth navbar example">
+            <picture class="navbar__logo">
+                <a href="./Index.html">
+                    <img src="../../multimedia/branding/logo_light_horizontal.svg" alt="">
+                </a>
+            </picture>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarsExample04">
+                <ul class="navbar-nav navbar__menu">
+                    <li class="nav__item dropdown with-submenu">
+                        <a class="nav__link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">SHOP</a>
+                        <ul class=" submenu">
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Funkos</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Remeras</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Llaveros</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" aria-current="page" href="#">CONTACTO</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">LOGIN</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link">CART</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link"><img src="../../multimedia/icons/cart-icon.svg" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header><!-- Fin de header -->
+    <main class="container container--main container--shop">
+
+        <!-- Seccion lateral con filtros de busqueda y orden -->
+        <aside class="filters__container">
+            <form class="filters__form" action="">
+
+                <!-- Buscar por item o categoria -->
+                <div class="filter">
+                    <label class="label label--filter" for="search">BUSCAR</label>
+                    <input class="input-text--box text-center" id="parameto" type="text" placeholder="Item o categoria">
+                    <button type="submit" id="btnBuscar" class="btn btn-sm btn-success">Buscar</button>
+                    <button type="submit" id="btnVer" class="btn btn-sm btn-success my-2">Ver Catálogo</button>
+                </div>
+
+                <!-- Ordenar items -->
+                <div class="filter">
+                    <label class="label label--filter" for="short">ORDENAR POR</label>
+                    <select class="input-select" name="short" id="short">
+                        <option value="precio_mayor">Mayor precio</option>
+                        <option value="precio_menor">Menor precio</option>
+                        <option value="nombre_az">Nombre A-Z</option>
+                        <option value="nombre_za">Nombre Z-A</option>
+                        <option value="destacado">Destacados</option>
+                    </select>
+                </div>
+
+                <!-- Filtrar items por precio -->
+                <div class="filter">
+                    <label class="label label--filter">PRECIO</label>
+                    <div class="filter--price">
+                        <label class="label--filter-price" for="min_price">MIN<input
+                                class="input-number--box input-hide-arrows" type="number" placeholder="0"
+                                min="0">-</label>
+                        <label class="label--filter-price" for="max_price">MAX<input
+                                class="input-number--box input-hide-arrows" type="number" placeholder="0"
+                                min="0"></label>
+                    </div>
+                </div>
+
+                <!-- Filtrar items segun caracteristicas -->
+                <div class="filter">
+                    <label class="label label--filter">FILTRAR</label>
+                    <ul>
+                        <li class="filter__li">
+                            <input class="input-checkbox" type="checkbox" name="check_new" id="check_new">
+                            <label class="label--checkbox" for="check_new">NUEVOS</label>
+                        </li>
+                        <li class="filter__li">
+                            <input class="input-checkbox" type="checkbox" name="check_offer" id="check_offer">
+                            <label class="label--checkbox" for="check_offer">OFERTAS</label>
+                        </li>
+                        <li class="filter__li">
+                            <input class="input-checkbox" type="checkbox" name="check_special" id="check_special">
+                            <label class="label--checkbox" for="check_special">EDICIÓN ESPECIAL</label>
+                        </li>
+                        <li class="filter__li">
+                            <input class="input-checkbox" type="checkbox" name="check_fav" id="check_fav">
+                            <label class="label--checkbox" for="check_fav">FAVORITOS</label>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </aside>
+
+        <!-- Contenedor de items y paginador -->
+        <section class="shop__container">
+
+            <!-- Solo listado de items -->
+            <ul class="shop__items-list bandeja" id="bandeja">
+                <!-- Se crea lista de items desde js -->
+            </ul>
+
+            <!-- Paginador -->
+            <section class="paginator">
+                <ol>
+                    <li>
+                        <a class="paginator__link paginator__link--arrow" href=""> < </a>
+                    </li>
+                    <li>
+                        <a class="paginator__link paginator__link--active" href="">1</a>
+                    </li>
+                    <li>
+                        <a class="paginator__link" href="">2</a>
+                    </li>
+                    <li>
+                        <a class="paginator__link" href="">...</a>
+                    </li>
+                    <li>
+                        <a class="paginator__link" href="">7</a>
+                    </li>
+                    <li>
+                        <a class="paginator__link" href="">8</a>
+                    </li>
+                    <li>
+                        <a class="paginator__link paginator__link--arrow" href="">></a>
+                    </li>
+                </ol>
+            </section>
+        </section>
+    </main>
+
+ 
+
+    <footer class="footer">
+        <nav class="navbar container">
+            <ul class="navbar__item">
+                <li class="navbar__item"><a href="shop.html" class="navbar__link">SHOP</a></li>
+                <li class="navbar__item"><a href="../login.html" class="navbar__link">INGRESAR</a></li>
+                <li class="navbar__item"><a href="../contact.html" class="navbar__link">CONTACTO </a></li>
+            </ul>
+            <picture>
+                <img class="logo" src="../../multimedia/branding/isotype.svg" alt="Iso tipo de la marca funkoshop">
+            </picture>
+        </nav>
+        <P class="footer__copy">All rights reserved 2023 -Funkoshop & Grupo 2 Comisión 23569</P>
+    </footer>
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="../../js/shop.js" type="module"></script>
+</body>
+
+</html>

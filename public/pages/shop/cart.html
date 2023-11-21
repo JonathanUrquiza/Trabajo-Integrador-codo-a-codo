@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../multimedia/octoface.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../style/components/bootstrap.min.css">
+    <link rel="stylesheet" href="../../style/index.css">
+    <title></title>
+</head>
+<!------ Inicio header ------>
+<header><!-- Inicio de header -->
+    <nav class="navbar navbar-expand-md navbar-dark" aria-label="Fourth navbar example">
+        <picture class="navbar__logo">
+            <a href="./Index.html">
+                <img src="../../multimedia/branding/logo_light_horizontal.svg" alt="">
+            </a>
+        </picture>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarsExample04">
+            <ul class="navbar-nav navbar__menu">
+                <li class="nav__item dropdown with-submenu">
+                    <a class="nav__link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                        aria-expanded="false">SHOP</a>
+                    <ul class=" submenu">
+                        <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Funkos</a></li>
+                        <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Remeras</a></li>
+                        <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Llaveros</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav__link" aria-current="page" href="#">CONTACTO</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="#">LOGIN</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link">CART</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link"><img src="../../multimedia/icons/cart-icon.svg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header><!-- Fin de header -->
+
+<main class="container container--main">
+    <!------ Seccion carrito de compra ------>
+    <section class="container--cartlist">
+
+        <h2 class="container__title">CARRITO DE COMPRAS</h2>
+        <table class="table-cart">
+
+            <!------ Cabecera de listado items en carrito ------>
+            <thead class="table-cart__head">
+                <tr class="table-cart__row">
+                    <td class="table-cart__data table-cart__data--head" colspan="2">
+                        <span>DETALLE DEL PRODUCTO</span>
+                    </td>
+                    <td class="table-cart__data table-cart__data--head">
+                        <span>CANTIDAD</span>
+                    </td>
+                    <td class="table-cart__data table-cart__data--head">
+                        <span>TOTAL</span>
+                    </td>
+                    <td class="table-cart__data table-cart__data--head">
+                    </td>
+                </tr>
+            </thead>
+            <section id="bandeja"
+                class="bandeja col-sm-12 col-md-6 col-lg-8 col-xxl-8 d-flex flex-row flex-wrap justify-content-evenly py-3">
+
+            </section>
+            <!------ Listado de items en carrito ------>
+            <tbody class="table-cart__body">
+
+                <!------ Item 1 ------>
+                <tr class="table-cart__row">
+                    <!------ Imagen del item ------>
+                    <td class="table-cart__data">
+                        <picture class="card__picture--cart">
+                            <img src="../../multimedia/star-wars/baby-yoda-1.webp" alt="">
+                        </picture>
+                    </td>
+                    <!------ Descripcion del item ------>
+                    <td class="table-cart__data">
+                        <section class="card__content card__content--table">
+                            <h4 class="card__name">baby yoda blueball</h4>
+                            <span class="card__collection">star wars</span>
+                            <span class="card__price">Precio: $ 1799,99</span>
+                        </section>
+                    </td>
+                    <!------ Cantidad item ------>
+                    <td class="table-cart__data">
+                        <div class="amount amount--table">
+                            <input class="amount__input input-hide-arrows" type="number" value="1" min="1">  
+                        </div>
+                    </td>
+                    <!------ Precio total ------>
+                    <td class="table-cart__data">
+                        <span class="card__price card__price--table">$3599,98</span>
+                    </td>
+                    <!------ Eliminar item ------>
+                    <td class="table-cart__data">
+                        <a href="" class="table-cart__delet">
+                            <iconify-icon icon="icon-park-outline:close-one" width="28" height="28"></iconify-icon>
+                        </a>
+                    </td>
+                </tr>
+
+                <!------ Item 2 ------>
+                <tr class="table-cart__row">
+                    <!------ Imagen del item ------>
+                    <td class="table-cart__data">
+                        <picture class="card__picture--cart">
+                            <img src="../../multimedia/harry-potter/snape-patronus-1.webp" alt="">
+                        </picture>
+                    </td>
+                    <!------ Descripcion del item ------>
+                    <td class="table-cart__data">
+                        <section class="card__content card__content--table">
+                            <h4 class="card__name">Severus patronus</h4>
+                            <span class="card__collection">harry potter</span>
+                            <span class="card__price">Precio: $ 1799,99</span>
+                        </section>
+                    </td>
+                    <!------ Cantidad item ------>
+                    <td class="table-cart__data">
+                        <div class="amount amount--table">
+                            <input class="amount__input input-hide-arrows" type="number" value="1" min="1">
+                            <div class="amount__btn-container">
+                                <a class="amount__btn" href=""><img src="/img/icons/+.svg" alt=""></a>
+                                <a class="amount__btn" href=""><img src="/img/icons/-.svg" alt="" srcset=""></a>
+                            </div>
+                        </div>
+                    </td>
+                    <!------ Precio total ------>
+                    <td class="table-cart__data">
+                        <span class="card__price card__price--table">$1799,99</span>
+                    </td>
+                    <!------ Eliminar item ------>
+                    <td class="table-cart__data">
+                        <a href="" class="table-cart__delet">
+                            <iconify-icon icon="icon-park-outline:close-one" width="28" height="28"></iconify-icon>
+                        </a>
+                    </td>
+                </tr>
+
+                <!------ Item 3 ------>
+                <tr class="table-cart__row">
+                    <!------ Imagen del item ------>
+                    <td class="table-cart__data">
+                        <picture class="card__picture--cart">
+                            <img src="../../multimedia/pokemon/dragonite-1.webp" alt="">
+                        </picture>
+                    </td>
+                    <!------ Descripcion del item ------>
+                    <td class="table-cart__data">
+                        <section class="card__content card__content--table">
+                            <h4 class="card__name">Dragonite</h4>
+                            <span class="card__collection">Pokemon</span>
+                            <span class="card__price">Precio: $ 1799,99</span>
+                        </section>
+                    </td>
+                    <!------ Cantidad item ------>
+                    <td class="table-cart__data">
+                        <div class="amount amount--table">
+                            <input class="amount__input input-hide-arrows" type="number" value="1" min="1">
+                            <div class="amount__btn-container">
+                                <a class="amount__btn" href=""><img src="../..//img/icons/+.svg" alt=""></a>
+                                <a class="amount__btn" href=""><img src="/img/icons/-.svg" alt="" srcset=""></a>
+                            </div>
+                        </div>
+                    </td>
+                    <!------ Precio total ------>
+                    <td class="table-cart__data">
+                        <span class="card__price card__price--table">$1799,99</span>
+                    </td>
+                    <!------ Eliminar item ------>
+                    <td class="table-cart__data">
+                        <a href="" class="table-cart__delet">
+                            <iconify-icon icon="icon-park-outline:close-one" width="28" height="28"></iconify-icon>
+                        </a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+    <!------ Seccion resumen de compra ------>
+    <section class="container--resumen">
+        <h2 class="container__title">RESUMEN</h2>
+        <section class="resumen__content table-cart__row">
+            <div class="resumen__div">
+                <span>CANTIDAD DE ELEMENTOS</span>
+                <span>4</span>
+            </div>
+            <div class="resumen__div">
+                <span>SUBTOTAL</span>
+                <span>$7199,96</span>
+            </div>
+            <div class="resumen__div">
+                <span>ENVIO</span>
+                <span>$0,00</span>
+            </div>
+            <div class="resumen__div">
+                <span>TOTAL</span>
+                <span>$7199,96</span>
+            </div>
+        </section>
+        <a class="btn-link btn-link--resumen" href="#">IR A PAGAR</a>
+    </section>
+</main>
+
+<!------ Inicio footer ------>
+<footer class="container--menu">
+    <section class="navbar navbar--footer container">
+
+        <!------ Menu de navegacion footer ------>
+        <ul class="navbar__menu--footer">
+            <li class="navbar__item">
+                <a class="navbar__link" href="/pages/shop/shop.html">SHOP</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" href="/pages/admin/login.html">LOGIN</a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" href="/pages/contact.html">CONTACTO</a>
+            </li>
+        </ul>
+        <picture class="navbar-footer__logo">
+            <a href="/index.html">
+                <img src="/img/branding/isotype.svg" alt="FunkoShop Logo">
+            </a>
+        </picture>
+    </section>
+
+    <!------ Pie de pagina ------>
+    <p class="footer__rights">All rights reserved 2023 - Funkoshop &copy;</p>
+</footer>
+<!-- bootstrap -->
+<script src="../../js/bootstrap.bundle.min.js">bootstrap</script>
+<!------ Scripts EXTERNOS ------>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script> <!-- Iconos -->
+<!------ Scripts PROPIOS ------>
+<script src="../js/cart.js" type="module">logica</script>
+<script src="../../js/item.js"></script>
+</body>
+
+</html>

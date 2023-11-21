@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/octoface.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/Style.css">
+    <link rel="stylesheet" href="../style/styleback.css">
+    <title>Items List</title>
+</head>
+<!-- Inicio de header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Fifth navbar example">
+        <div class="container-fluid">
+            <H3>FUNKOSHOP</H3>
+            <picture>
+                <a href="../Index.html">
+                    <img class="logo p-1" src="../multimedia/branding/isotype.svg"
+                        alt="Imagen de la marca Funkoshop"></a>
+            </picture>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
+                aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample05">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="shop.html">VER TIENDA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">ADMIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SALIR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="container">
+<section class="row">
+    <h1>CREAR NUEVO ITEM</h1>
+</section>
+<section class="row">
+    <form action="algo.html" method="post" id="formItem" class="col-12 col-md-8 p-4">
+        <fieldset class="d-flex flex-row flex-wrap">
+            <label for="" id="serie-label"><input type="text" id="serie" name="serie" required
+                    placeholder="Serie"></label>
+            <label for="" id="licencia-label"><input type="text" id="Licencia" name="licencia"
+                    required placeholder="Licencia"></label>
+                    <label id="nombreProducto-label">Nombre del producto:<input id="nombreProducto" name="nombreProducto" type="text"
+                            placeholder="Ingrese el producto" required /></label>
+        </fieldset>
+        <fieldset>
+                <label for="bio">Deje su mensaje.
+                    <textarea id="bio" name="bio" rows="10" cols="100" class="w-100"
+                        placeholder="Descreipción del producto"></textarea>
+                </label>
+        </fieldset>
+        <fieldset class="d-flex flex-row flex-wrap w-100 align-items-center justify-content-around px-5">
+            <label for="SKU-label" id="SKU-label">SKU: <input type="text" id="sku" name="SKU" required
+                placeholder="SSK111AB001"></label>
+        <label for="precio-label" id="precio-label">Precio: <input type="number" id="precio" name="precio"
+                required placeholder="$0.000,00"></label>
+                <label for="stock-label" id="stock-label">Stock: <input type="number" id="stock" name="stock"
+                    required placeholder="0"></label>
+                <label for="file-label" id="file">Imagenes: <input type="file" id="load" name="file"
+                        required></label>
+        </fieldset>
+        <input type="submit" class="btn btn-danger" value="AGREGAR" id="agregar"/>
+        <input type="submit" class="btn btn-danger" value="LIMPIAR" id="clea"/>
+    </form>
+</section>
+    
+    
+    
+    
+</main>
+<footer>
+    <section class="d-flex flex-column justify-content-start align-items-center px-4 py-5">
+        <nav class="d-flex flex-column flex-lg-row align-items-center justify-content-between w-100">
+            <ul class="list-unstyled">
+                <li><a href="shop.html" class="nav_link">SHOP</a></li>
+                <li><a href="resgister.html" class="nav-link">REGISTRARSE</a></li>
+                <li><a href="login.html" class="nav_link">INGRESAR</a></li>
+                <li><a href="contact.html" class="nav_link">CONTACTO </a></li>
+            </ul>
+            <picture>
+                <img class="logo" src="../multimedia/branding/isotype.svg" alt="Iso tipo de la marca funkoshop">
+            </picture>
+        </nav>
+        <P>All rights reserved 2023 -Funkoshop & Grupo 2 Comisión 23569</P>
+    </section>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous">Boosrtrap</script>
+
+</body>
+
+</html>
