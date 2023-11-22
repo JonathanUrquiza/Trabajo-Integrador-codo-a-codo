@@ -23,7 +23,7 @@
 @import url('components/card.css');
 @import url('./components/slider.css');
 @import url('components/collection.css');
-
+@import url('./components/hero.css');
 /* PAGES */
 
 @import url('./pages/home.css');

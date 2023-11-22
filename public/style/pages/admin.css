@@ -7,6 +7,9 @@
     gap: var(--spacing-8);
     margin-bottom: var(--spacing-36);
 }
+.admin__form {
+    width: fit-content;
+}
 .admin__icon {
     font-size: var(--font-xlarge);
 }
@@ -17,6 +20,9 @@
     border-radius: 6px;
     outline: none;
     flex: 0 0 35%;
+}
+.bar {
+    width: 530px;
 }
 .admin__list {
     display: flex;
