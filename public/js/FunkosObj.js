@@ -1,4 +1,4 @@
-export const  FunkosObj = {
+const  FunkosObj = {
     'starwars': [
       {
         id: 1,
@@ -137,3 +137,4 @@ export const  FunkosObj = {
     }
     ]
 }
+module.exports = FunkosObj
