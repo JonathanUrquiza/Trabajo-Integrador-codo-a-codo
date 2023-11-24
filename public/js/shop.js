@@ -25,6 +25,8 @@ function guaradarElemento(elemento) {
   return cart.push(elemento)
 }     
 
+/* const starwars = infoFunkos.filter((el) => el.collection == "starwars")
+ */
 
 
 

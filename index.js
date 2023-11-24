@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const PORT = process.env.PORT || 3000;
+const errorHandler = require('./src/utils/errorhandler.js')
 const shopRoutes = require('./src/routes/shopRoutes.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
+const { auth } = require('./src/middlewares/auth.js')
 
 
 /* middleware */
@@ -12,16 +14,17 @@ app.use(express.static('public'));//define la carpeta publica de estáticos.
 app.use(express.urlencoded())//para evitar tenes que formatear los tipos de datos para que el servidor pueda leerlos 
 app.use(express.json())//para evitar tenes que formatear los tipos de datos para que el servidor pueda leerlos 
 
+
+
+
 /* Rutas */
-app.use('/', shopRoutes);
-app.use('/', adminRoutes);
+app.use('/', auth,shopRoutes);
+app.use('/',auth, adminRoutes);
 
 
 
-/* middleware */
+/* middleware, server error, nos permite controlar el flujo delos datos */
 
-app.use((req,res) => {
-    res.status(404).sendFile(__dirname + '/public/pages/error/error.html')
-})
+app.use(errorHandler[404])      
 
 app.listen(PORT, () => console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`))
