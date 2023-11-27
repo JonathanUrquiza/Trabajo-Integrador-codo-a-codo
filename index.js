@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
-const PORT = process.env.PORT || 3000;
-const errorHandler = require('./src/utils/errorhandler.js')
+
+require('dotenv').config();
+const errorHandler = require('./src/utils/errorhandler.js');
 const shopRoutes = require('./src/routes/shopRoutes.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
 const { auth } = require('./src/middlewares/auth.js')
+const PORT = process.env.PORT || 3008;
 
 
 /* middleware */
