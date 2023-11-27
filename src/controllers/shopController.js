@@ -1,8 +1,7 @@
-const fs = require('fs');
 const path = require('path');
 const { getAll, getOne } = require('../models/items.js');
 
-/* Fatla soliucionar la logiaca del cotrolador */
+/* El controlador respoden las peticiones de las rutsa*/
 
 
 
@@ -23,16 +22,10 @@ const getId = async (req, res) => {
 }
 
 //contrlador para la ruta /shop/items
-const getIlicence = (req, res) => {
-
-    const Funkos = fs.readFileSync(path.resolve(__dirname, '../../data/item.json'));//trae el array de items en binario
-    const infoFunkos = JSON.parse(Funkos);//parsea de binario a array de obj.
-    const { licence } = req.query;//destructura el objeto
-    const itemFiltered = infoFunkos.filter(el => el.collection == licence);
-    if (itemFiltered.length == 0) {
-        res.send(infoFunkos)
-    }
-    res.send(itemFiltered)
+const getIlicence = async (req, res) => {
+    const licence  = req.params.licence;
+    const item = await getOne({product_licence : licence});
+    res.send(item);
 }
 //Controlador para la ruta /shop/items/:id/add
 const postAdd = (req, res) => {

@@ -1,11 +1,12 @@
-const express = require('express');
-const app = express();
+const express = require('express');//lama a express
+const app = express();//accede al metodo de express
 
-require('dotenv').config();
-const errorHandler = require('./src/utils/errorhandler.js');
-const shopRoutes = require('./src/routes/shopRoutes.js');
-const adminRoutes = require('./src/routes/adminRoutes.js');
-const { auth } = require('./src/middlewares/auth.js')
+require('dotenv').config();//llama a la configuración de la base de datos
+const errorHandler = require('./src/utils/errorhandler.js');//metod para manejar la ruta inexistente.
+const mainRoutes = require('./src/routes/mainRoutes.js'),
+shopRoutes = require('./src/routes/shopRoutes.js'),
+adminRoutes = require('./src/routes/adminRoutes.js');//trae el modulo con la lógica del router
+const { auth } = require('./src/middlewares/auth.js');//maneja la autorización de los datos.
 const PORT = process.env.PORT || 3008;
 
 
@@ -21,6 +22,7 @@ app.use(express.json())//para evitar tenes que formatear los tipos de datos para
 /* Rutas */
 app.use('/', auth,shopRoutes);
 app.use('/',auth, adminRoutes);
+app.use('/',auth, mainRoutes);
 
 
 

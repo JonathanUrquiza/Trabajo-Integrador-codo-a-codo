@@ -2,6 +2,7 @@
 
 const { conn } = require('../config/conn.js');
 
+
 const getAll = async () => {
     const [rows] = await conn.query('select * from infofunkos.product;');
     return rows;
