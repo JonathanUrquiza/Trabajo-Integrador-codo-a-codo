@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/octoface.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/Style.css">
+    <link rel="stylesheet" href="../style/styleback.css">
+    <title>Items List</title>
+</head>
+<!-- Inicio de header -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Fifth navbar example">
+        <div class="container-fluid">
+            <H3>FUNKOSHOP</H3>
+            <picture>
+                <a href="../Index.html">
+                    <img class="logo p-1" src="../multimedia/branding/isotype.svg"
+                        alt="Imagen de la marca Funkoshop"></a>
+            </picture>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05"
+                aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExample05">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="shop.html">VER TIENDA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">ADMIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SALIR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="container">
+    <section class="row">
+        <h1>EDITAR ITEM</h1>
+    </section>
+    <section class="row">
+        <form action="algo.html" method="post" id="formItemEdit" class="col-12 p-4">
+            <fieldset class="d-flex flex-row flex-wrap w-100 align-items-center px-5">
+                <label for="referrer">Categoría:
+                    <select id="dropdown" name="dropdown">
+                        <option value="">Elija una opción</option>
+                        <option value="Colaboración">Colaboración</option>
+                        <option value="Contratación">Contratación</option>
+                        <option value="Sitios web´s dinamicos">Sitios web´s dinamicos</option>
+                        <option value="Consultas">Consultas</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </label>
+                <label for="referrer">Licencia:
+                    <select id="dropdown" name="dropdown">
+                        <option value="">Elija una opción</option>
+                        <option value="Colaboración">Colaboración</option>
+                        <option value="Contratación">Contratación</option>
+                        <option value="Sitios web´s dinamicos">Sitios web´s dinamicos</option>
+                        <option value="Consultas">Consultas</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset class="d-flex flex-row flex-wrap w-100 align-items-center px-5">
+                <label for="name-label" id="name-label">Nombre del producto: <input type="text" id="nombre"
+                        name="nombre" required placeholder="Nombre" class="w-50"></label>
+            </fieldset>
+            <fieldset>
+                <label for="bio">Descipción:
+                    <textarea id="bio" name="bio" rows="10" cols="100" class="w-100"
+                        placeholder="Descreipción del producto"></textarea>
+                </label>
+            </fieldset>
+            <fieldset class="d-flex flex-row flex-wrap w-100 align-items-center px-5">
+                <label for="SKU-label" id="SKU-label">SKU: <input type="text" id="sku" name="SKU" required
+                        placeholder="SSK111AB001"></label>
+                <label for="precio-label" id="precio-label">Precio: <input type="number" id="precio" name="precio"
+                        required placeholder="$0.000,00"></label>
+                <label for="stock-label" id="stock-label">Stock: <input type="number" id="stock" name="stock" required
+                        placeholder="0"></label>
+                    </fieldset>
+                    <fieldset class="d-flex flex-row flex-wrap w-100 align-items-center px-5">
+                        <label for="stock-label" id="discount-label">Descuento: <input type="number" id="discount" name="discount" required
+                            placeholder="10%"></label>
+               
+                <label for="referrer">Cuotas:
+                    <select id="dropdown" name="dropdown">
+                        <option value="">Cantidad de cuotas</option>
+                        <option value="3">3 cuotas sin interes</option>
+                        <option value="6">6 cuotas sin interes</option>
+                        <option value="9">9 cuotas sin interes</option>
+                        <option value="12">12 cuotas sin interes</option>
+                    </select>
+                </label>
+            </fieldset class="d-flex flex-row flex-wrap w-100 align-items-center px-5">
+            <fieldset>
+                <label for="file-label" id="file">Imagenes: <input type="file" id="load" name="file"
+                    required></label>
+            </fieldset>
+            <input type="submit" class="btn btn-danger" value="MODIFICAR PRODUCTOS" id="modificar" />
+        </form>
+    </section>
+
+
+
+
+</main>
+<footer>
+    <section class="d-flex flex-column justify-content-start align-items-center px-4 py-5">
+        <nav class="d-flex flex-column flex-lg-row align-items-center justify-content-between w-100">
+            <ul class="list-unstyled">
+                <li><a href="shop.html" class="nav_link">SHOP</a></li>
+                <li><a href="resgister.html" class="nav-link">REGISTRARSE</a></li>
+                <li><a href="login.html" class="nav_link">INGRESAR</a></li>
+                <li><a href="contact.html" class="nav_link">CONTACTO </a></li>
+            </ul>
+            <picture>
+                <img class="logo" src="../multimedia/branding/isotype.svg" alt="Iso tipo de la marca funkoshop">
+            </picture>
+        </nav>
+        <P>All rights reserved 2023 -Funkoshop & Grupo 2 Comisión 23569</P>
+    </section>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous">Boosrtrap</script>
+
+</body>
+
+</html>

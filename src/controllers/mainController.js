@@ -1,13 +1,41 @@
-const path = require('path');
-const router = require('../routes/shopRoutes');
 
-const getIndex = (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../public/index.html'));
-}
+
+
+const homeView = /* async */ (req, res) => {
+    //const allItems = await licenceService.getAllItemsLicence();
+    res.render('../views/home' , {
+        view :{
+            title: "Home || FUNKOSHOP"
+        },
+        /* collections : allItems.data,
+        enableGlide : true */
+    });
+} 
+
 const getAbaut = (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../../public/pages/contact.html'));
+    res.render('../views/abaut', {
+        view: {
+            title: "Abaut || FUNKOSHOP"
+        }
+    });
+}
+const postLogin = (req, res) => {
+    res.render('login', {
+        view : {
+            title : "Login || FUNKOSHOP"
+        }
+    });
+};
+const postRegister = (req, res) => {
+    res.render('register', {
+        view : {
+            title : "Register || FUNKOSHOP"
+        }
+    })
 }
 module.exports = {
-    getIndex,
-    getAbaut
+    getAbaut,
+    postLogin,
+    postRegister,
+    homeView
 }

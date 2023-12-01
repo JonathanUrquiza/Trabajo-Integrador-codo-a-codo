@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../multimedia/octoface.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style/components/bootstrap.min.css">
+    <link rel="stylesheet" href="../style/index.css">
+    
+    <title>Contacto</title>
+</head>
+<!-- Inicio de header -->
+<body>
+    <header><!-- Inicio de header -->
+        <nav class="navbar navbar-expand-md navbar-dark" aria-label="Fourth navbar example">
+            <picture class="navbar__logo">
+                <a href="../Index.html">
+                    <img src="../multimedia/branding/logo_light_horizontal.svg" alt="">
+                </a>
+            </picture>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarsExample04">
+                <ul class="navbar-nav navbar__menu">
+                    <li class="nav__item dropdown with-submenu">
+                        <a class="nav__link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">SHOP</a>
+                        <ul class=" submenu">
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="shop/shop.html">Funkos</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="shop/remeras.html">Remeras</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="shop/llaveros.html">Llaveros</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" aria-current="page" href="contact.html">CONTACTO</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="login.html">LOGIN</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="shop/cart.html">CART</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link"><img src="../multimedia/icons/cart-icon.svg" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header><!-- Fin de header -->
+
+<!-- Fin de header -->
+<main>
+    <section class="">
+        <h1 class="col-8 offset-2">Contacto</h1>
+        <!-- el action es a donde envia los datos, metodo es como lo voy a enviar, enctype es que tipo de información envio como multipart/form-data, application/x-www-form-urlencoded, text/plain-->
+        <form method="post" action="http://demo-registro.com.ar" enctype="multipart/form-data" id="survey-form" class="col-lg-8 offset-lg-2 col-10 shadow-lg d-flex flex-column align-items-center text-white bg-dark rounded-4 pb-3">
+            <fieldset class="">
+                <label id="name-label" for="first-name">Nombre:</label><input id="first-name" name="first-name" type="text" class="form-control"
+                        placeholder="Nombre completo" required>
+                <label id="last-name-label" for="last-name">Apellido:</label><input id="last-name" type="text" name="last-name" placeholder="Apellido" class="form-control" required>
+                <label id="email" for="email">Email:</label><input id="email" type="email" name="email" placeholder="@mail.com" class="form-control" required>
+            </fieldset>
+            <fieldset class="w-50 p-2 m-1">
+                <label for="referrer">Elija una opción
+                    <select name="dropdown" id="dropdown" class="form-select form-select-sm" aria-label="Multiple select example">
+                        <option selected>Elija una opción</option>
+                        <option value="1">Comentario</option>
+                        <option value="2">Prooveedores</option>
+                        <option value="3">Cliente</option>
+                        <option value="4">Trabajá con nosotros</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset class="p-2 m-1 w-50">
+                <label for="bio">
+                    <textarea name="bio" class="w-100 form-control" id="bio" cols="30" rows="10" placeholder="Dejenos su comentario..."></textarea>
+                </label>
+            </fieldset>
+            <fieldset class="p-2 m-1 w-100 form-check p-3">
+                <label>Desea recibir notificaciones y ofertas?</label>
+                <label for="Definitely" class="form-check-label">Definitivamente si!</label><input id="Definitely" type="radio" name="account-type" value="Definitely" class="inline form-check-input">
+                <label for="not sure" class="form-check-label">No estoy seguro</label><input id="not sure" type="radio" name="account-type" value="not sure" class="inline form-check-input">
+            </fieldset>
+            <input type="submit" value="Enviar" id="submit" class="btn btn-dark">
+        </form>
+    </section>
+</main>
+<footer class="footer">
+    <nav class="navbar container">
+        <ul class="navbar__item">
+            <li class="navbar__item"><a href="Busqueda.html" class="navbar__link">SHOP</a></li>
+            <li class="navbar__item"><a href="" class="navbar__link">INGRESAR</a></li>
+            <li class="navbar__item"><a href="" class="navbar__link">CONTACTO </a></li>
+        </ul>
+        <picture>
+            <img class="logo" src="../multimedia/branding/isotype.svg" alt="Iso tipo de la marca funkoshop">
+        </picture>
+    </nav>
+    <P class="footer__copy">All rights reserved 2023 -Funkoshop & Grupo 2 Comisión 23569</P>
+</footer>
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

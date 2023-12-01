@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="multimedia/octoface.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style/components/bootstrap.min.css">
+    <link rel="stylesheet" href="style/index.css">
+    <title><%= view.title%></title>
+</head>
+
+<body>
+    <header><!-- Inicio de header sin links -->
+        <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Fourth navbar example">
+            <picture class="navbar__logo">
+                <a href="/home">
+                    <img src="multimedia/branding/logo_light_horizontal.svg" alt="Logo del ecommerce funkoshop">
+                </a>
+            </picture>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-lg-flex justify-content-lg-end" id="navbarsExample04">
+                <ul class="navbar-nav navbar__menu">
+                    <li class="nav__item dropdown with-submenu">
+                        <a class="nav__link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">SHOP</a>
+                        <ul class=" submenu">
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="/shop/shop">Funkos</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="pages/shop/remeras.html">Remeras</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="pages/shop/llaveros.html">Llaveros</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" aria-current="page" href="/contact">CONTACTO</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="/login">LOGIN</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="#">CART</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link"><img src="multimedia/icons/cart-icon.svg" alt=""></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header><!-- Fin de header -->
