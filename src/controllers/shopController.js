@@ -6,12 +6,13 @@ const intemsSerice = require('../service/itemsServices.js')
 
 const shopView = async (req, res) => {
     const items = await intemsSerice.getAllItems();
+    const { data } = items;
     
     res.render('../views/shop/shop', {
         view: {
             title: "Shop || FUNKOSHOP"
         },
-        items
+        items: data
     });
 }
 const itemView = async (req, res) => {
@@ -26,9 +27,6 @@ const itemView = async (req, res) => {
         enableGlide: true
     })
 }
-
-
-
 const getItem = async (req, res) => {
    
     res.render('../views/shop/cart',  {

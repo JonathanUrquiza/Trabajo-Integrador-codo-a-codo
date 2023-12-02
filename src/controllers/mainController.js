@@ -1,19 +1,29 @@
+const itemsSerice = require('../service/itemsServices.js')
 
 
 
-const homeView = /* async */ (req, res) => {
-    //const allItems = await licenceService.getAllItemsLicence();
-    res.render('../views/home' , {
+const homeView = async (req, res) => {
+    const starwars = await itemsSerice.getAllItemsCollection("starwars");
+    const harry = await itemsSerice.getAllItemsCollection("harrypotter");
+    const pokemon = await itemsSerice.getAllItemsCollection("pokemon");
+
+    console.log(starwars);
+    console.log(harry);
+    console.log(pokemon);
+
+    res.render('home' , {
         view :{
-            title: "Home || FUNKOSHOP"
+                title: "Home || FUNKOSHOP"
         },
-        /* collections : allItems.data,
-        enableGlide : true */
+        collection1: starwars.data,
+        collections2: harry.data,
+        collections3 : pokemon.data,
+        enableGlide : true
     });
 } 
 
 const getAbaut = (req, res) => {
-    res.render('../views/abaut', {
+    res.render('abaut', {
         view: {
             title: "Abaut || FUNKOSHOP"
         }

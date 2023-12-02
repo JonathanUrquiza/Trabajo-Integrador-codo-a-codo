@@ -4,9 +4,9 @@ const getAllItems = async () => {
   return await ItemModel.getAll();
 }
 
-/* const getInstance = async () => {
-    return await ItemModel.getinstance();
-}; */
+const getAllItemsCollection = async (collection) => {
+    return await ItemModel.getOne({collection: collection});
+};
 
 const getItem = async (id) => {
   return await ItemModel.getOne({product_id: id});
@@ -54,5 +54,6 @@ const deleteItem = async (id) => {
 module.exports = {
   getAllItems,
   getItem,
+  getAllItemsCollection
 
 }
