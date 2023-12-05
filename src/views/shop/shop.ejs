@@ -2,20 +2,23 @@
     <main class="container container--main container--shop" id="">
 
         <!-- Seccion lateral con filtros de busqueda y orden -->
-        <aside class="filters__container col-2" id="shop">
-            <form class="filters__form" action="">
+        <aside class="shop__filters filters id="shop">
+            <form class="filters__form" action="http://localhost:3000/shop/items" method="get">
 
                 <!-- Buscar por item o categoria -->
-                <div class="filter">
-                    <label class="label label--filter" for="search">BUSCAR</label>
-                    <input class="input-text--box text-center" id="parameto" type="text" placeholder="Item o categoria">
-                    <button type="submit" id="btnBuscar" class="btn btn-sm btn-success">Buscar</button>
-                    <button type="submit" id="btnVer" class="btn btn-sm btn-success my-2">Ver Catálogo</button>
+                <div class="filters__search">
+                    <label class="filters__title" for="search">BUSCAR</label>
+                    <input class="input-text--box text-center" id="licence" type="text"name="licence" placeholder="Item o categoria">
+                    <div class="d-flex flex-row w-100 justify-content-around">
+                        <button type="submit"class="filters__title btn btn-sm btn-success my-4 ">Buscar</button>
+                    <button type="submit"class="filters__title btn btn-sm btn-success my-4"><a href="shop">Ver todos</a></button>
+                    </div>
                 </div>
-
+</form>
+<form class="filters__form" action="" method="get">
                 <!-- Ordenar items -->
-                <div class="filter">
-                    <label class="label label--filter" for="short">ORDENAR POR</label>
+                <div class="filters__order">
+                    <label class="filters__title" for="short">ORDENAR POR</label>
                     <select class="input-select" name="short" id="short">
                         <option value="precio_mayor">Mayor precio</option>
                         <option value="precio_menor">Menor precio</option>
@@ -26,8 +29,8 @@
                 </div>
 
                 <!-- Filtrar items por precio -->
-                <div class="filter">
-                    <label class="label label--filter">PRECIO</label>
+                <div class="filters__price">
+                    <label class="filters__title">PRECIO</label>
                     <div class="filter--price">
                         <label class="label--filter-price" for="min_price">MIN<input
                                 class="input-number--box input-hide-arrows" type="number" placeholder="0"
@@ -39,8 +42,8 @@
                 </div>
 
                 <!-- Filtrar items segun caracteristicas -->
-                <div class="filter">
-                    <label class="label label--filter">FILTRAR</label>
+                <div class="filters__checks">
+                    <label class="filters__title">FILTRAR</label>
                     <ul>
                         <li class="filter__li">
                             <input class="input-checkbox" type="checkbox" name="check_new" id="check_new">
@@ -91,7 +94,7 @@
                                         <%= item.product_name %>
                                     </h4>
                                     <p class="card-item__price">
-                                        <%= item.price %>
+                                        $<%= item.price %>-
                                     </p>
                                     <p class="card-item__promo"></p>
                                     <p class="card-text text-info">3 CUOTAS SIN INTERÉS</p>

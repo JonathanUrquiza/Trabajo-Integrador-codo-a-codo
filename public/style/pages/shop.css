@@ -12,6 +12,10 @@
     flex-direction: column;
     gap: var(--spacing-28);
 }
+.filters__container {
+    display: flex;
+    flex-direction: column;
+}
 
 .filters__title {
     font-size: var(--font-medium);

@@ -3,40 +3,43 @@ const itemsSerice = require('../service/itemsServices.js')
 
 
 const homeView = async (req, res) => {
+    /* Fue necesario hardcodear estos datos, debido a que no se explico como estructurar una base de datos correctamente,
+    para simular la tabla de licencie y que traiga los finkos con determinada licence
+     */
     const starwars = await itemsSerice.getAllItemsCollection("starwars");
     const harry = await itemsSerice.getAllItemsCollection("harrypotter");
     const pokemon = await itemsSerice.getAllItemsCollection("pokemon");
-
-    console.log(starwars);
-    console.log(harry);
-    console.log(pokemon);
+    
+    
 
     res.render('home' , {
         view :{
                 title: "Home || FUNKOSHOP"
         },
-        collection1: starwars.data,
+        collections1: starwars.data,
         collections2: harry.data,
         collections3 : pokemon.data,
         enableGlide : true
     });
+    
+   
 } 
 
-const getAbaut = (req, res) => {
+const AboutView = (req, res) => {
     res.render('abaut', {
         view: {
-            title: "Abaut || FUNKOSHOP"
+            title: "About || FUNKOSHOP"
         }
     });
 }
-const postLogin = (req, res) => {
-    res.render('login', {
+const contactView = (req, res) => {
+    res.render('contact', {
         view : {
             title : "Login || FUNKOSHOP"
         }
     });
 };
-const postRegister = (req, res) => {
+const faqsViews = (req, res) => {
     res.render('register', {
         view : {
             title : "Register || FUNKOSHOP"
@@ -44,8 +47,8 @@ const postRegister = (req, res) => {
     })
 }
 module.exports = {
-    getAbaut,
-    postLogin,
-    postRegister,
+    AboutView,
+    contactView,
+    faqsViews,
     homeView
 }
