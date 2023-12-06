@@ -18,7 +18,25 @@ const getAll = async () => {
         }
         return error
     }finally {
-        await conn.releaseConnection();
+        conn.releaseConnection();
+    }
+}
+const getName = async (params) => {
+    try {
+        const [rows] = await conn.query('SELECT * FROM product WHERE ?', params);
+        const response = {
+            isError : false,
+            data: rows
+        }
+        return response
+    }catch (e){
+        const error = {
+            isError: false,
+            message: `No pudimos realizar la consulta.`
+        }
+        return error
+    }finally{
+        conn.releaseConnection()
     }
 }
 
@@ -37,12 +55,13 @@ const getOne = async (params) => {
         };
         return error
     }finally{
-        await conn.releaseConnection()
+        conn.releaseConnection()
     }
 }
 
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    getName
 }

@@ -44,9 +44,25 @@ const getIlicence = async (req, res) => {
     })
 }
 
+//Falta que funcione con el input del formulario de busqueda
+const productName = async (req, res) => {
+    const name = req.query.name;
+    const item = await intemsSerice.getProductName(name)
+    const { data } = item;
+    res.render('../views/shop/item', {
+        view: {
+            title: "Item|| FunkoShop"
+        },
+        item: data[0],
+        enableGlide: true
+    })
+
+}
+
 module.exports = {
     itemView,
     getIlicence,
     shopView,
-    getItem
+    getItem,
+    productName
 }

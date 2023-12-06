@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+<main>
+    <section class="">
+        <h1 class="col-8 offset-2">Contacto</h1>
+        <!-- el action es a donde envia los datos, metodo es como lo voy a enviar, enctype es que tipo de información envio como multipart/form-data, application/x-www-form-urlencoded, text/plain-->
+        <form method="post" action="http://demo-registro.com.ar" enctype="multipart/form-data" id="survey-form" class="col-lg-8 offset-lg-2 col-10 shadow-lg d-flex flex-column align-items-center text-white bg-dark rounded-4 pb-3">
+            <fieldset class="">
+                <label id="name-label" for="first-name">Nombre:</label><input id="first-name" name="first-name" type="text" class="form-control"
+                        placeholder="Nombre completo" required>
+                <label id="last-name-label" for="last-name">Apellido:</label><input id="last-name" type="text" name="last-name" placeholder="Apellido" class="form-control" required>
+                <label id="email" for="email">Email:</label><input id="email" type="email" name="email" placeholder="@mail.com" class="form-control" required>
+            </fieldset>
+            <fieldset class="w-50 p-2 m-1">
+                <label for="referrer">Elija una opción
+                    <select name="dropdown" id="dropdown" class="form-select form-select-sm" aria-label="Multiple select example">
+                        <option selected>Elija una opción</option>
+                        <option value="1">Comentario</option>
+                        <option value="2">Prooveedores</option>
+                        <option value="3">Cliente</option>
+                        <option value="4">Trabajá con nosotros</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset class="p-2 m-1 w-50">
+                <label for="bio">
+                    <textarea name="bio" class="w-100 form-control" id="bio" cols="30" rows="10" placeholder="Dejenos su comentario..."></textarea>
+                </label>
+            </fieldset>
+            <fieldset class="p-2 m-1 w-100 form-check p-3">
+                <label>Desea recibir notificaciones y ofertas?</label>
+                <label for="Definitely" class="form-check-label">Definitivamente si!</label><input id="Definitely" type="radio" name="account-type" value="Definitely" class="inline form-check-input">
+                <label for="not sure" class="form-check-label">No estoy seguro</label><input id="not sure" type="radio" name="account-type" value="not sure" class="inline form-check-input">
+            </fieldset>
+            <input type="submit" value="Enviar" id="submit" class="btn btn-dark">
+        </form>
+    </section>
+</main>
+<%- include('partials/footer') %>

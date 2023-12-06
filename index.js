@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 3008;
 /* Router */
 const mainRoutes = require('./src/routes/mainRoutes.js');
 const shopRoutes = require('./src/routes/shopRoutes.js');
-const adminRoutes = require('./src/routes/adminRoutes.js');//trae el modulo con la lógica del router
-
+const adminRoutes = require('./src/routes/adminRoutes.js');
+const authRoutes = require('.src/routes/authRouter.js')
 
 /* middleware */
 /* El middleware sirve para convertir la información a un formato que el servidor puede entender */
@@ -33,6 +33,7 @@ app.use(express.json())//para evitar tenes que formatear los tipos de datos para
 app.use('/',auth, mainRoutes);
 app.use('/shop', auth,shopRoutes);
 app.use('/admin',auth, adminRoutes);
+app.use('/auth',auth, authRoutes);
 
 
 

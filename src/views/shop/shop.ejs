@@ -80,7 +80,7 @@
                         <li class="shop__items shadow-lg">
                             <a class="card-item__link" href="item/<%= item.product_id %>">
                                 <picture class="card-item__cover">
-                                    <span class="card-item__tag">Nuevo</span>
+                                    <!-- <span class="card-item__tag">Nuevo</span> -->
                                     <img class="card-item__img--front" src="../../multimedia<%= item.image_front %>"
                                         alt="" srcset="">
                                     <img class="card-item__img--back" src="../../multimedia<%= item.image_back %>"
@@ -88,7 +88,7 @@
                                 </picture>
                                 <div class="card-item__content">
                                     <p class="card-item__licence">
-                                        <%= item.licence %>
+                                        <%= item.product_licence %>
                                     </p>
                                     <h4 class="card-item__name">
                                         <%= item.product_name %>
@@ -103,11 +103,8 @@
                                 </div>
                             </a>
                         </li>
-
-
                         <% }); %>
                 </ul>
-
             </section>
 
             <!-- Paginador -->

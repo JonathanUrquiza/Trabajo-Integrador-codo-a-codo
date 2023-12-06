@@ -2,10 +2,11 @@ const express = require('express'), router = express.Router(), mainController = 
 
 /* Todas las rutas que no tengan que ver con el shop ni el admin */
 /* router.get('/home', (req, res) => res.render('home')); */
-router.get('/home', mainController.homeView);
-router.get('/home/about', mainController.AboutView);
-router.get('/home/contact', mainController.contactView);//falta crear el ejs y cambiar a post
-router.get('/home/faqs', mainController.faqsViews);//falta el ejs y cambiar a post
+router.get('/', mainController.homeView);
+router.get('/contact', mainController.contactView);
+router.get('/about', mainController.aboutView);
+router.get('/faqs',mainController.faqsView);
+
 
 
 module.exports = router;

@@ -23,32 +23,32 @@ const homeView = async (req, res) => {
     });
     
    
-} 
-
-const AboutView = (req, res) => {
-    res.render('abaut', {
-        view: {
-            title: "About || FUNKOSHOP"
-        }
-    });
 }
 const contactView = (req, res) => {
     res.render('contact', {
         view : {
-            title : "Login || FUNKOSHOP"
+            title : "Contacto || FUNKOSHOP"
         }
     });
 };
-const faqsViews = (req, res) => {
-    res.render('register', {
-        view : {
-            title : "Register || FUNKOSHOP"
+const aboutView = (req, res) => {
+    res.render('about', {
+        view:{ 
+            title: "Acerca de mí || FunkoShop"
+        }
+    })
+};
+
+const faqsView = (req, res) => {
+    res.render('faqs', {
+        view: {
+            title: "FAQS || FunkoShop"
         }
     })
 }
 module.exports = {
-    AboutView,
     contactView,
-    faqsViews,
-    homeView
+    homeView,
+    aboutView,
+    faqsView
 }
