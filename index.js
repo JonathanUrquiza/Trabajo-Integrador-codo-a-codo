@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3008;
 const mainRoutes = require('./src/routes/mainRoutes.js');
 const shopRoutes = require('./src/routes/shopRoutes.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
-const authRoutes = require('.src/routes/authRouter.js')
+const authRoutes = require('./src/routes/authRoutes.js')
 
 /* middleware */
 /* El middleware sirve para convertir la información a un formato que el servidor puede entender */

@@ -34,9 +34,23 @@ const editView = async (req, res) => {
         licences
     });
 };
+const createItem = async (req, res) => {
+    const item = req.body;
+    const result = await itemsSerice.create(item.map(el => Object.values(el)));
+    res.send(result)
+}
+const editpost = (req, res) => {
+    res.send('editpost')
+}
+const deleteItem = (req, res) => {
+    res.send('Edit post')
+}
 
 module.exports = {
     adminView,
     createView,
-    editView
+    editView,
+    createItem,
+    editpost,
+    deleteItem
 }

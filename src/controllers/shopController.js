@@ -58,11 +58,18 @@ const productName = async (req, res) => {
     })
 
 }
-
+const checout = (req, res) => {
+    res.send('Checkout logic')
+}
+const postAdd = (req, res) => {
+    res.send('postAdd item in cart')
+}
 module.exports = {
     itemView,
     getIlicence,
     shopView,
     getItem,
-    productName
+    productName,
+    checout,
+    postAdd
 }

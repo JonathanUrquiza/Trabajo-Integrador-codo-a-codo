@@ -3,7 +3,7 @@ const router = express.Router();
 const shopController = require('../controllers/shopController.js');
 
 //Busca los items que tiene el mismo collection || endpoint unico para collection
-router.get('/shop', shopController.shopView)//muestra todos los items
+router.get('/', shopController.shopView)//muestra todos los items
 router.get('/items', shopController.getIlicence);//Muestra los items segun su collection
 router.get('/item', shopController.productName);//Falta hacer que la consulta en el input ejecute este controller
 router.get('/item/:id', shopController.itemView);
