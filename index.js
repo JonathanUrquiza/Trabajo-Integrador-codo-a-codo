@@ -5,16 +5,24 @@ const path = require('path');
 const errorHandler = require('./src/utils/errorhandler.js');//metod para manejar la ruta inexistente.
 const { auth } = require('./src/middlewares/auth.js');//maneja la autorización de los datos.
 const PORT = process.env.PORT || 3008;
+const { initSession } = require('./src/utils/session.js');
+
 
 /* Router */
 const mainRoutes = require('./src/routes/mainRoutes.js');
 const shopRoutes = require('./src/routes/shopRoutes.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
-const authRoutes = require('./src/routes/authRoutes.js')
+const authRoutes = require('./src/routes/authRoutes.js');
 
 /* middleware */
 /* El middleware sirve para convertir la información a un formato que el servidor puede entender */
 app.use(express.static(path.resolve(__dirname,'public')));//define la carpeta publica de estáticos.
+
+
+//Sesion de usuario
+app.use(initSession())//Esta sesion crea una coockie con la informacion del cliente
+
+
 
 //Configuración del template engine - ejs
 app.set('view engine', 'ejs');

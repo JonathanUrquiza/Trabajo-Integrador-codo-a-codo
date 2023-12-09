@@ -1,24 +1,33 @@
 <%- include('../partials/headerS') %>
     <!-- Partials item -->
     <main class="container">
+      <% if (item.length < 1) { %>
+            <section class="item__name shadow-lg my-5 ">
+                <div class="card-body">
+                    <h1 class="card-title text-center p-4">El item no existe o fue eliminado</h1>
+                </div>
+
+            </section>
+        <% } else  { %>
+         
         <section class="item shadow-lg">
             <picture class="item__img card-item__cover">
-                <img class="card-item__img--front" src="../../multimedia<%= item.image_front %>"
-                    alt="<%= item.item__description %>" srcset="">
-                <img class="card-item__img--back" src="../../multimedia<%= item.image_back %>"
-                    alt="<%= item.item__description %>">
+                <img class="card-item__img--front" src="../../multimedia<%= item[0].image_front %>"
+                    alt="<%= item[0].item__description %>" srcset="">
+                <img class="card-item__img--back" src="../../multimedia<%= item[0].image_back %>"
+                    alt="<%= item[0].item__description %>">
             </picture>
             <article class="item--info">
                 <p class="item__licence">
-                    <%= item.product_licence %>
+                    <%= item[0].product_licence %>
                 </p>
                 <h3 class="item__name">
-                    <%= item.product_name %>
+                    <%= item[0].product_name %>
                 </h3>
                 <p class="item__description">
-                    <%= item.product_description %>
+                    <%= item[0].product_description %>
                 </p>
-                <p class="item__price">$ <%= item.price %>.-</p>
+                <p class="item__price">$ <%= item[0].price %>.-</p>
                 <div class="item__cart">
                     <input class="item__input" type="text" name="quantity" id="quantity" placeholder="0">
                     <div class="item__select">
@@ -31,6 +40,8 @@
                 <p class="item__promo text-info"><a href="">Ver métodos de pago</a> - 3 CUOTAS SIN INTERÉS</p>
             </article>
         </section>
+        <% } %>
+         
         <%- include('../components/slider') %>
     </main>
     <%- include('../partials/footerS') %>

@@ -19,7 +19,7 @@ const itemView = async (req, res) => {
         view: {
             title: "Item|| FunkoShop"
         },
-        item: data[0],
+        item: data,
         enableGlide: true
     })
 }

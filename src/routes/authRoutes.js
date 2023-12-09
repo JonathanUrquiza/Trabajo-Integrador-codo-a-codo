@@ -1,11 +1,32 @@
 const express = require('express');
 const router = express.Router();
-const authController = require('../controllers/authController.js');
+const validateInput = require('../middlewares/validator');
+const { body } = require('express-validator');
+const {
+    loginView,
+    loginPost,
+    registerPost,
+    registerView
+} = require('../controllers/authController.js');
+
+
+
+const loginValidation = [
+    body('email')
+    .isEmail()
+    .withMessage('Es necesario ingresar un correo válido'),
+    body('password')
+    .isLength({min:8})
+    .isAlphanumeric()
+    .withMessage('La contraseña debe tener al menos 8 caracteres y contene letras y números')
+];
+
+
 
 //Falatan desarrollar todos
-router.get('/login', authController.loginView);
-router.post('/login',authController.loginPost);
-router.get('/register', authController.registerView);
-router.post('/register', authController.registerPost);
+router.get('/login', loginView);
+router.post('/login', loginValidation, loginPost);
+router.get('/register', registerView);
+router.post('/register', registerPost);
 
 module.exports = router;

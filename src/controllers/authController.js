@@ -1,8 +1,26 @@
-const loginView = (req, res) => {
-    res.send('Auth route')
+const useCredentials = {
+    email: 'jonas.lokura@gmail.com',
+    password: 'elloco123'
 }
+
+
+const loginView = (req, res) => {
+    res.render('admin/login', {
+        view: {
+            title: 'Login | FunkoShop'
+        }
+    })
+}
+
 const loginPost = (req, res ) => {
-    res.send('login Post')
+    const {email, password} = req.body;
+    const emailValidation = useCredentials.email == email;
+    const passwordValidation = useCredentials.password == password;
+    req.session.isLogged = emailValidation & passwordValidation ? true : false;
+    if (req.session.isLogged) {
+        return res.redirect('/admin');
+    }
+    return res.status(401).send('credenciales inválidas')
 }
 const registerView = (req, res) => {
     res.send('register get')

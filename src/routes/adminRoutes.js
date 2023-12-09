@@ -1,13 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const uploadFiles = require('../middlewares/uploadFiles.js')
-const adminCotroller = require('../controllers/adminController.js')
+const uploadFiles = require('../middlewares/uploadFile.js')
+const { isLogged } = require('../middlewares/login.js')
+const {
+    adminView,
+    createView,
+    createItem,
+    editView,
+    editpost,
+    deleteItem
+} = require('../controllers/adminController.js')
 
-router.get('/',adminCotroller.adminView)
-router.get('/create',adminCotroller.createView)
-router.post('/create', adminCotroller.createItem)//falta desarrollar
-router.get('/edit/:id', adminCotroller.editView)
-router.post('/edit/:id', adminCotroller.editpost)//falta desarrollar
-router.delete('/delete/:id',adminCotroller.deleteItem)//falta desarrollar
+router.get('/', adminView)
+router.get('/create',isLogged, createView)
+router.post('/create',isLogged, createItem)//Aca va el uploadFiles
+router.get('/edit/:id', isLogged, editView)
+router.put('/edit/:id', isLogged, editpost)
+router.delete('/delete/:id', isLogged, deleteItem)
 
 module.exports = router;
