@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 //Configuración del template engine - ejs
 app.set('view engine', 'ejs');
-app.set('views', './src/views');
+app.set('views', path.resolve(__dirname,'./src/views'));
 
 
 

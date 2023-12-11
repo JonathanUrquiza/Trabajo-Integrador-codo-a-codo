@@ -1,4 +1,5 @@
-const session = require('express-session')
+const session = require('cookie-session');
+//const session = require('express-session') fue utilizado para el periodo de desarrollo.
 require('dotenv').config();
 
 function initSession() {
