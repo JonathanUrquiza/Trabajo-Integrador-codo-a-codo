@@ -6,6 +6,7 @@ const homeView = async (req, res) => {
     /* Fue necesario hardcodear estos datos, debido a que no se explico como estructurar una base de datos correctamente,
     para simular la tabla de licencie y que traiga los finkos con determinada licence
      */
+
     const starwars = await itemsSerice.getAllItemsCollection("starwars");
     const harry = await itemsSerice.getAllItemsCollection("harrypotter");
     const pokemon = await itemsSerice.getAllItemsCollection("pokemon");

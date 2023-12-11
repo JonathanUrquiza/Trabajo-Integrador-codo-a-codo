@@ -5,7 +5,7 @@ function initSession() {
 
     return session({
         secret: process.env.SESSION_NAME,//palabra secreta
-        resave: false,//Nos indica si tiene que guardar la sesion el el session sotrage si hubo algun cambio.
+        //resave: false,//Nos indica si tiene que guardar la sesion el el session sotrage si hubo algun cambio.
         saveUninitialized: true//Determina si se tiene que guardar una sesion auque no se alla modificado.
     });
 }

@@ -12,6 +12,46 @@
 
 <body>
     <header class="page-header"><!-- Inicio de header con likns -->
+        <% if (locals.isLogged) {%>
+
+            <nav class="navbar navbar-expand-md navbar-dark" aria-label="Fourth navbar example">
+                <picture class="navbar__logo">
+                    <a href="/">
+                        <img src="../../multimedia/branding/logo_light_horizontal.svg" alt="">
+                    </a>
+                </picture>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+                    aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarsExample04">
+                    <ul class="navbar-nav navbar__menu">
+                        <li class="nav__item dropdown with-submenu">
+                            <a class="nav__link dropdown-toggle" href="" data-bs-toggle="dropdown"
+                                aria-expanded="false">SHOP</a>
+                            <ul class=" submenu">
+                                <li class="submenu__item"><a class="dropdown-item submenu__link" href="/shop/shop">Funkos</a></li>
+                                <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Remeras</a></li>
+                                <li class="submenu__item"><a class="dropdown-item submenu__link" href="#">Llaveros</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav__link" aria-current="page" href="">ADMIN</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="/admin/create">CREATE</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="/admin/edit/">EDIT</a>
+                        </li>
+                        <li class="nav__item">
+                            <a class="nav__link" href="/auth/logout">LOGOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <% } else { %>
         <nav class="navbar navbar-expand-md navbar-dark" aria-label="Fourth navbar example">
             <picture class="navbar__logo">
                 <a href="/">
@@ -49,4 +89,5 @@
                 </ul>
             </div>
         </nav>
+        <% } %>
     </header><!-- Fin de header -->

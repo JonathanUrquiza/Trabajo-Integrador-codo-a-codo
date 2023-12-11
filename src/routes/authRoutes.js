@@ -6,7 +6,8 @@ const {
     loginView,
     loginPost,
     registerPost,
-    registerView
+    registerView,
+    logoutUser
 } = require('../controllers/authController.js');
 
 
@@ -28,5 +29,5 @@ router.get('/login', loginView);
 router.post('/login', loginValidation, loginPost);
 router.get('/register', registerView);
 router.post('/register', registerPost);
-
+router.get('/logout', logoutUser)
 module.exports = router;

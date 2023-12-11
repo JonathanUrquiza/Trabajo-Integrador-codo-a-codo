@@ -12,7 +12,7 @@ const shopView = async (req, res) => {
     });
 }
 const itemView = async (req, res) => {
-    const id = req.params.id;
+    const id = req.params.id;   
     const item = await intemsSerice.getItem(id);
     const { data } = item;
     res.render('../views/shop/item', {

@@ -12,6 +12,44 @@
 
 <body>
     <header class="page-header"><!-- Inicio de header sin links -->
+
+        <% if (locals.isLogged) {%>
+        <nav class="navbar container">
+            <picture>
+                <a href="/home">
+                    <img src="multimedia/branding/logo_light_horizontal.svg" alt="Logo del ecommerce funkoshop">
+                </a>
+            </picture>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-lg-end" id="navbarsExample04">
+                <ul class="navbar-nav navbar__menu">
+                    <li class="nav__item dropdown with-submenu">
+                        <a class="nav__link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                            aria-expanded="false">SHOP</a>
+                        <ul class=" submenu">
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="/shop/shop">Funkos</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="pages/shop/remeras.html">Remeras</a></li>
+                            <li class="submenu__item"><a class="dropdown-item submenu__link" href="pages/shop/llaveros.html">Llaveros</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" aria-current="page" href="/admin/admin">ADMIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav__link" aria-current="page" href="/auth/create">CREATE</a>
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="/auth/logout">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <% } else { %>
+
+
         <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Fourth navbar example">
             <picture class="navbar__logo">
                 <a href="/home">
@@ -49,5 +87,5 @@
                 </ul>
             </div>
         </nav>
-
+        <% } %>
     </header><!-- Fin de header -->

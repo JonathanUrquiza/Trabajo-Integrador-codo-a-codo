@@ -6,6 +6,7 @@ const errorHandler = require('./src/utils/errorhandler.js');//metod para manejar
 const { auth } = require('./src/middlewares/auth.js');//maneja la autorización de los datos.
 const PORT = process.env.PORT || 3008;
 const { initSession } = require('./src/utils/session.js');
+const { isLogged } = require('./src/middlewares/login.js')
 
 
 /* Router */
@@ -16,17 +17,21 @@ const authRoutes = require('./src/routes/authRoutes.js');
 
 /* middleware */
 /* El middleware sirve para convertir la información a un formato que el servidor puede entender */
-app.use(express.static(path.resolve(__dirname,'public')));//define la carpeta publica de estáticos.
+app.use(express.static(path.resolve(__dirname, 'public')));//define la carpeta publica de estáticos.
 
 
 //Sesion de usuario
 app.use(initSession())//Esta sesion crea una coockie con la informacion del cliente
+app.use((req, res, next) => {
+  res.locals.isLogged = req.session.isLogged;
+  next();
+});
 
 
 
 //Configuración del template engine - ejs
 app.set('view engine', 'ejs');
-app.set('views','./src/views');
+app.set('views', './src/views');
 
 
 
@@ -36,17 +41,17 @@ app.use(express.json())//para evitar tenes que formatear los tipos de datos para
 
 
 
-
+console.log(isLogged);
 /* Rutas */
-app.use('/',auth, mainRoutes);
-app.use('/shop', auth,shopRoutes);
-app.use('/admin',auth, adminRoutes);
-app.use('/auth',auth, authRoutes);
+app.use('/', auth, mainRoutes);
+app.use('/shop', auth, shopRoutes);
+app.use('/admin', auth, adminRoutes);
+app.use('/auth', auth, authRoutes);
 
 
 
 /* middleware, server error, nos permite controlar el flujo delos datos */
 
-app.use(errorHandler[404]);     
+app.use(errorHandler[404]);
 
 app.listen(PORT, () => console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`))
