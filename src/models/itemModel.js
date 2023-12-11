@@ -5,7 +5,7 @@ const { conn } = require('../config/conn.js');
 
 const getAll = async () => {
     try {
-        const [rows] = await conn.query('SELECT * FROM infofunkos.product;');
+        const [rows] = await conn.query('SELECT * FROM funkotest_infofunkos.product;');
         const response = {
             isError : false,
             data: rows
@@ -42,7 +42,7 @@ const getName = async (params) => {
 
 const getOne = async (params) => {
     try{
-        const [rows] = await conn.query('select * from infofunkos.product WHERE ?', params);
+        const [rows] = await conn.query('select * from funkotest_infofunkos.product WHERE ?', params);
         const response = {
             isError : false,
             data:rows

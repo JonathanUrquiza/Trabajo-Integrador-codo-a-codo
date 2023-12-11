@@ -3,6 +3,7 @@ const intemsSerice = require('../service/itemsServices.js')
 /* El controlador respoden las peticiones de las rutsa*/
 const shopView = async (req, res) => {
     const items = await intemsSerice.getAllItems();
+    console.log(items);
     const { data } = items;
     res.render('../views/shop/shop', {
         view: {
@@ -40,7 +41,7 @@ const getIlicence = async (req, res) => {
         view: {
             title: "Licence || FunkoShop"
         },
-        items: data
+        items: data[0]
     })
 }
 

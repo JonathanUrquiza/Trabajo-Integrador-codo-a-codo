@@ -23,7 +23,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));//define la carpeta p
 //Sesion de usuario
 app.use(initSession())//Esta sesion crea una coockie con la informacion del cliente
 app.use((req, res, next) => {
-  res.locals.isLogged = req.session.isLogged;
+  res.locals.isLogged = req.session.isLogged;//Este middleware a nivel app, y caca vez qeu el usuario haga un peticion, le asigna a locals lo que traiga de la session, retorna true o false
   next();
 });
 
