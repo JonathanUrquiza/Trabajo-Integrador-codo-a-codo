@@ -28,16 +28,20 @@
                     <%= item[0].product_description %>
                 </p>
                 <p class="item__price">$ <%= item[0].price %>.-</p>
-                <<form class="item__cart" action="#" method="POST" enctype="application/x-www-form-urlencoded">
-                    <button id="subtract" class="item__quantity" type="button">-</button>
-                    <input id="quantity" class="item__input" type="text" name="quantity" placeholder="0">
-                    <button id="add" class="item__quantity" type="button">+</button>
-                    <button class="item__submit btn btn--primary" type="submit">Agregar al carrito</button>
-                </form>
-                <p class="item__promo"><a href="">Ver métodos de pago</a> - 3 CUOTAS SIN INTERÉS</p>
+                <div class="item__cart">
+                    <input class="item__input" type="text" name="quantity" id="quantity" placeholder="0">
+                    <div class="item__select">
+                        <button class="item__quantity agregar" id="add" type="button">+</button>
+                        <button class="item__quantity quitar" id="subtract" type="button">-</button>
+                    </div>
+                    <button class="item__submit btn btn--primary btn--large">Agregar al carrito</button>
+
+                </div>
+                <p class="item__promo text-info"><a href="">Ver métodos de pago</a> - 3 CUOTAS SIN INTERÉS</p>
             </article>
         </section>
         <% } %>
+         
         <%- include('../components/slider') %>
     </main>
     <%- include('../partials/footerS') %>
