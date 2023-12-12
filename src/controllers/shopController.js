@@ -36,12 +36,13 @@ const getItem = async (req, res) => {
 const getIlicence = async (req, res) => {
     const licence  = req.query.licence;
     const items = await intemsSerice.getAllItemsCollection(licence);
+    
     const { data } = items
     res.render('../views/shop/shop', {
         view: {
             title: "Licence || FunkoShop"
         },
-        items: data[0]
+        items: data
     })
 }
 
