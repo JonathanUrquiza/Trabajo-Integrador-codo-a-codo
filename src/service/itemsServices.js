@@ -14,6 +14,8 @@ const getItem = async (id) => {
 const getProductName = async(name) => {
   return await ItemModel.getName({product_name: name})
 }
+
+
 const createItem = async (item, files) => {
   const itemSchema = {
     product_name: item.name,
@@ -30,6 +32,8 @@ const createItem = async (item, files) => {
   }
   return await ItemModel.create([Object.values(itemSchema)]);
 }
+
+
 
 const editItem = async (item, id) => {
   const itemSchema = {

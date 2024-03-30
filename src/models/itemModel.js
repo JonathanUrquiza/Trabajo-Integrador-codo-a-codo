@@ -5,21 +5,21 @@ const { conn } = require('../config/conn.js');
 
 const getAll = async () => {
     try {
-        const [rows] = await conn.query('SELECT * FROM funkotest_infofunkos.product;');
+        const [rows] = await conn.query('SELECT product. *, category.category_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id = licence.licence_id;');
         const response = {
             isError : false,
             data: rows
-        }
-        return response
+        };
+        return response;
     }catch (e) {
         const error = {
             isError : true,
             message:`No pudimos recuperar los datos ${e}`
-        }
+        };
         return error
     }finally {
         conn.releaseConnection();
-    }
+    };
 }
 const getName = async (params) => {
     try {
@@ -27,22 +27,22 @@ const getName = async (params) => {
         const response = {
             isError : false,
             data: rows
-        }
+        };
         return response
     }catch (e){
         const error = {
             isError: false,
             message: `No pudimos realizar la consulta.`
-        }
+        };
         return error
     }finally{
         conn.releaseConnection()
-    }
+    };
 }
 
 const getOne = async (params) => {
     try{
-        const [rows] = await conn.query('select * from funkotest_infofunkos.product WHERE ?', params);
+        const [rows] = await conn.query('select product.*, category.categoty_name, licence.licence_name FROM (product LEFT JOIN category ON product.category_id = category.category_id) LEFT JOIN licence ON product.licence_id =  licence.licence_id WHERE ?;', params);
         const response = {
             isError : false,
             data:rows
@@ -58,27 +58,36 @@ const getOne = async (params) => {
         conn.releaseConnection()
     }
 }
+
+
+
+
 const create = async (params) => {
     try {
-      const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id) VALUES ?;', [params]);
+      const [rows] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, image_front, image_back, licence_id, category_id) VALUES ?;', [params]); 
+      
   
-      const response = {
+       const response = {
         isError: false,
         data: rows
       };
   
       return response;
-    } catch (e) {
+    }/*  catch (e) {
       const error = {
         isError: true,
         message: `No pudimos crear los valores seleccionados por: ${e}`
       };
   
       return error;
-    } finally {
+    } */ finally {
       conn.releaseConnection();
     }
   };
+
+
+
+
   const edit = async (params, id) => {
     try {
       const [rows] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);

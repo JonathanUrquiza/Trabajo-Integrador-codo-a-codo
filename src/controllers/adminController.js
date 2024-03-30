@@ -1,8 +1,10 @@
-const itemsSerice = require('../service/itemsServices');
+const itemsService = require('../service/itemsServices');
+const licencesSerice = require('../service/licenceService');
+
 
 const adminView = async (req, res) => {
    
-    const { data } = await itemsSerice.getAllItems();
+    const { data } = await itemsService.getAllItems();
     res.render('admin/admin', {
         view:{
             title: 'List of product || Admin FunskoShop'
@@ -13,9 +15,9 @@ const adminView = async (req, res) => {
 
 const editView = async (req, res) => {
     const id = req.params.id;
-    const { data: categories } = await itemsSerice.getAllItems();//Revisar estas consultas!
-    const { data: licences } = await itemsSerice.getAllItemsCollection();
-    const { data } = await itemsSerice.getItem(id);
+    const { data: categories } = await itemsService.getAllItems();//Revisar estas consultas!
+    const { data: licences } = await itemsService.getAllItemsCollection();
+    const { data } = await itemsService.getItem(id);
     console.log(categories, licences);
     res.render('admin/edit', {
         view: {
@@ -29,33 +31,42 @@ const editView = async (req, res) => {
 const editpost = async (req, res) => {
     const id = req.params.id;
     const item = req.body;
-    await itemsSerice.edit(item, id);
+    await itemsService.edit(item, id);
     res.redirect('/admin/edit');
 }
 const createView = async (req, res) => {
-    const { data: categories } = await itemsSerice.getAllItems();
-    const { data: licences } = await itemsSerice.getAllItemsCollection();
+    const { data: categories } = await itemsService.getAllItems();
+    const { data: licences } = await licencesSerice.getAllItemsLicence();
+    console.log(licences);
+    console.log('espacio');
     res.render('admin/create', {
         view: {
-            title: 'Create Product || Admin FunkoShop'
+            title: 'Create || FunkoShop'
         },
         categories,
         licences
     });
 };
+
+
 const createItem = async (req, res) => {
     const item = req.body;
-    const result = await itemsSerice.create(Object.values(item));
+    const result = await itemsService.create(item);
     res.send(result)
 }
+    
+
+
+
+
 const bulkCreate = async (req, res) => {
     const items = req.body;
-    const result = await itemsSerice.create(items.map(el => Object.values(el)));
+    const result = await itemsService.create(items.map(el => Object.values(el)));
     res.send(result) 
 }
 const deleteItem = async (req, res) => {
     const id = req.params.id;
-    await itemsSerice.delete(id);
+    await itemsService.delete(id);
     res.redirect('/admin');
 }
 

@@ -13,9 +13,9 @@ const {
 
 
 router.use(isLogged);
-router.get('/', adminView)
+router.get('/',adminView)
 router.get('/create', createView)
-router.post('/create', createItem)//Aca va el uploadFiles
+router.post('/create', uploadFiles.array('images',2),createItem);//Aca va el uploadFiles
 router.get('/edit/:id', editView)
 router.put('/edit/:id', editpost)
 router.delete('/delete/:id', deleteItem)

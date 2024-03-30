@@ -16,7 +16,7 @@
     
     
     
-    <section class="collection container">
+ <!--    <section class="collection container">
         <article class="collection__content">
             <h3 class="collection__title">Star Wars & The mandalorian</h3>
             <p class="collection__text">Disfruta de una saga que sigue agregando personajes a su colección</p>
@@ -54,7 +54,23 @@
             <img src="multimedia/harry-potter/snape-patronus-1.webp"
                 alt="Figura coleccionable Funko del Patronus de snape en la pelicula de harry potter.">
         </picture>
-    </section>
+    </section> -->
+    
+    <% collections.forEach(collection => { %>
+        <section class="collection container">
+            <article class="collection__content">
+                <h3 class="collection__title"><%= collection.licence_name %></h3>
+                <p class="collection__text"><%= collection.licence_description %></p>
+                <a href="/shop?filter=licence-<%= collection.licence_id %>" class="collection__link">Ver collección</a>
+            </article>
+            <picture class="collection__cover">
+                <img src="/multimedia<%=  collection.licence_image%>" alt="">
+                <!-- Copiar la imagen del funk y ponerle PK-COVER segun corresponda dentro de una carpeta img 
+                Tambien recordar que los modulos ItemService y LicenceService fueron modificados para funcionar con la base de datos modificada del proyecto.
+                -->
+            </picture>
+        </section>
+    <% }) %>
 
 
     <section class="slider container glide">

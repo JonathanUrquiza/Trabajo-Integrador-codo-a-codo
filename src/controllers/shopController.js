@@ -3,7 +3,7 @@ const intemsSerice = require('../service/itemsServices.js')
 /* El controlador respoden las peticiones de las rutsa*/
 const shopView = async (req, res) => {
     const items = await intemsSerice.getAllItems();
-    console.log(items);
+    console.log('/shop -> shopRouter -> shopController -> shopView');
     const { data } = items;
     res.render('../views/shop/shop', {
         view: {

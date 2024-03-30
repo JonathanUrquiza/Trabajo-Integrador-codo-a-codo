@@ -1,3 +1,5 @@
+const registerService = require('../service/registerService.js')
+
 const useCredentials = {
     email: 'jonas.lokura@gmail.com',
     password: 'elloco123'
@@ -26,10 +28,22 @@ const loginPost = (req, res ) => {
     return res.status(401).send('credenciales inválidas')
 }
 const registerView = (req, res) => {
-    res.send('register get')
+    console.log( 'auth -> regiterView');
+  
+    res.render('../views/admin/register', {
+        view : {
+            title: 'Register || FunkoShop'
+        }
+    })
 }
-const registerPost = (req, res) => {
-    res.send('registerPost')
+const registerPost = async (req, res) => {
+    const data = req.body;
+    const result = await registerService.createUser(Object.values(data))
+    res.send(result)
+
+    
+    
+        
 }
 
 const logoutUser = (req, res) => {
