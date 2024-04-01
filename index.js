@@ -9,13 +9,19 @@ const { auth } = require('./src/middlewares/auth.js');//maneja la autorización 
 const PORT = process.env.PORT || 3008;
 const { initSession } = require('./src/utils/session.js');
 const { isLogged } = require('./src/middlewares/login.js');
+const picocolors = require('picocolors');
+
+
+
+
 
 /* Router */
 const mainRoutes = require('./src/routes/mainRoutes.js');
 const shopRoutes = require('./src/routes/shopRoutes.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
 const authRoutes = require('./src/routes/authRoutes.js');
-const blogRoutes = require('./src/routes/BlogRoutes.js')
+const blogRoutes = require('./src/routes/BlogRoutes.js');
+const TestRoutes = require('./src/routes/TestRoutes.js');
 /* middleware */
 /* El middleware sirve para convertir la información a un formato que el servidor puede entender */
 app.use(express.static(path.resolve(__dirname, 'public')));//define la carpeta publica de estáticos.
@@ -39,6 +45,7 @@ app.set('views', path.resolve(__dirname,'./src/views'));
 app.use(express.urlencoded())//para evitar tenes que formatear los tipos de datos para que el servidor pueda leerlos 
 app.use(express.json())//para evitar tenes que formatear los tipos de datos para que el servidor pueda leerlos 
 app.use(cors())
+app.disable('x-powered-by');// Elimina las cabeceras de datos, evitando problemas de seguridad
 
 
 
@@ -51,19 +58,17 @@ app.use('/blogs', blogRoutes);//Este modelo permite ingresar comentarios de los 
 app.use('/shop', auth, shopRoutes);//Falta hacerlo con sequelize
 app.use('/admin', auth, adminRoutes);//Falta hacerlo con sequelize
 app.use('/auth', auth, authRoutes);//Falta hacerlo con sequelize
-
+app.use('/test', TestRoutes)
 
 try {
   db.authenticate()
-  console.log('Conexion exitosa a DB');
+  console.log(picocolors.green(' Conexion exitosa a DB '));
 } catch (error) {
-  console.log(`el error de conexión es: ${error}`);
+  console.error(picocolors.red(` el error de conexión es: ${error} `));
 }
 
 /* middleware, server error, nos permite controlar el flujo delos datos */
 
 app.use(errorHandler[404]);
 
-
-
-app.listen(PORT, () => console.log(`🚀 Servidor corriendo en: http://localhost:${PORT}`))
+app.listen(PORT, () => console.log(picocolors.bold(picocolors.green(` 🚀 Servidor corriendo en: http://localhost:${PORT} `))))

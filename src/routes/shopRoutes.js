@@ -9,7 +9,6 @@ const { shopView,
         postAdd
     } = require('../controllers/shopController.js');
 
-//Busca los items que tiene el mismo collection || endpoint unico para collection
 router.get('/shop', shopView)//muestra todos los items
 router.get('/items', getIlicence);//Muestra los items segun su collection
 router.get('/item', productName);//Falta hacer que la consulta en el input ejecute este controller

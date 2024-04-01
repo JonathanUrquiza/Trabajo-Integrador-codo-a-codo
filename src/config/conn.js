@@ -1,3 +1,4 @@
+const pc = require('picocolors')
 const mysql = require('mysql2');
 require('dotenv').config();
 
@@ -15,18 +16,13 @@ const pool = mysql.createPool({
 })
 pool.getConnection((error, connection) => {
     if (error) {
-        console.error('hubo un error', error)
+        console.error(pc.red('hubo un error', error))
     } else {
-        //const rows = connection.query('SHOW DATABASE;');
-        console.log('conexion exitosa', /* rows */);
+        console.info(pc.blue('conexion exitosa'));
         connection.release();
     }
-
-
 })
-
 module.exports = {
     conn: pool.promise()
 }
-
 /* Solo falta seguir con las conexiones a la DB! */

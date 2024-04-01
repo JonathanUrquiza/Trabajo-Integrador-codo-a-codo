@@ -1,10 +1,13 @@
 const intemsSerice = require('../service/itemsServices.js')
 
+
+
+
 /* El controlador respoden las peticiones de las rutsa*/
 const shopView = async (req, res) => {
     const items = await intemsSerice.getAllItems();
-    console.log('/shop -> shopRouter -> shopController -> shopView');
     const { data } = items;
+    console.log(data); 
     res.render('../views/shop/shop', {
         view: {
             title: "Shop || FUNKOSHOP"
@@ -74,4 +77,5 @@ module.exports = {
     productName,
     checout,
     postAdd
+    
 }
