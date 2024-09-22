@@ -2,8 +2,8 @@ const { conn } = require('../config/conn');
 
 const getAll = async () => {
     //Este codigo es para usar php myadmin
-    /* try {
-        const [rows] = await conn.query('SELECT * FROM funkotest_infofunkos.product;');
+    try {
+        const [rows] = await conn.query('SELECT * FROM licence;');
         const response = {
             isError : false,
             data: rows
@@ -17,9 +17,9 @@ const getAll = async () => {
         return error
     }finally {
         conn.releaseConnection();
-    } */
+    }
     //Este codigo es paa usar la base de datos local
-    try {
+    /*try {
         const [rows] = await conn.query('SELECT * FROM licence;');
         const response = {
             isError : false,
@@ -34,7 +34,7 @@ const getAll = async () => {
         return error
     } finally {
         await conn.releaseConnection();
-    };
+    };*/
 };
 
 module.exports = {

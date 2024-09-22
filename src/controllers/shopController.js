@@ -37,7 +37,7 @@ const getItem = async (req, res) => {
 }
 //contrlador para la ruta /shop/items:licence
 const getIlicence = async (req, res) => {
-    const licence  = req.query.licence;
+    const licence  = req.query.id;
     const items = await intemsSerice.getAllItemsCollection(licence);
     
     const { data } = items

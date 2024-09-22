@@ -11,7 +11,7 @@ const homeView = async (req, res) => {
     const pokemon = await itemsSerice.getAllItemsCollection("pokemon");
     */
     const licences = await licenceService.getAllItemsLicence();    
-    console.log('/ -> mainRouter -> mainController -> HomeView');
+    console.log(licences);
 
     res.render('home' , {
         view :{
