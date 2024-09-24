@@ -1,7 +1,6 @@
 const express = require('express');//lama a express
 const app = express();//accede al metodo de express
 const cors = require('cors')
-const db = require('./src/config/db.js')
 require('dotenv').config();//llama a la configuración de la base de datos
 const path = require('path');
 const errorHandler = require('./src/utils/errorhandler.js');//metod para manejar la ruta inexistente.
@@ -20,7 +19,6 @@ const mainRoutes = require('./src/routes/mainRoutes.js');
 const shopRoutes = require('./src/routes/shopRoutes.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
 const authRoutes = require('./src/routes/authRoutes.js');
-const blogRoutes = require('./src/routes/BlogRoutes.js');
 const TestRoutes = require('./src/routes/TestRoutes.js');
 /* middleware */
 /* El middleware sirve para convertir la información a un formato que el servidor puede entender */
@@ -54,8 +52,6 @@ console.log(isLogged);
 /* Rutas */
 
 app.use('/', auth, mainRoutes);//Falta hacerlo con sequelize, muestra todo lo repacionada mi perfil
-
-app.use('/blogs', blogRoutes);//Este modelo permite ingresar comentarios de los compradores en el producto. Comentario interno 
 app.use('/shop', auth, shopRoutes);//Falta hacerlo con sequelize
 app.use('/admin', auth, adminRoutes);//Falta hacerlo con sequelize
 app.use('/auth', auth, authRoutes);//Falta hacerlo con sequelize
