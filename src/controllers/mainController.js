@@ -2,16 +2,11 @@ const licenceService = require('../service/licenceService.js')
 
 
 
-const homeView = async (req, res) => {
-    /* Fue necesario hardcodear estos datos, debido a que no se explico como estructurar una base de datos correctamente,
-    para simular la tabla de licencie y que traiga los finkos con determinada licence
+const homeView = async (_req, res) => {
+    /* Este código trae todos las licencias */
+    const licences = await licenceService.getAllItemsLicence(); 
+    console.log('Se renderiza de maincontroller ==> licenceService');
     
-    const starwars = await itemsSerice.getAllItemsCollection("starwars");
-    const harry = await itemsSerice.getAllItemsCollection("harrypotter");
-    const pokemon = await itemsSerice.getAllItemsCollection("pokemon");
-    */
-    const licences = await licenceService.getAllItemsLicence();    
-    console.log(licences);
 
     res.render('home' , {
         view :{
@@ -23,7 +18,7 @@ const homeView = async (req, res) => {
     
    
 }
-const contactView = (req, res) => {
+const contactView = (_req, res) => {
     console.log('/contact>mainRouter>mainController>contacView');
     res.render('contact', {
         view : {
@@ -31,7 +26,7 @@ const contactView = (req, res) => {
         }
     });
 };
-const aboutView = (req, res) => {
+const aboutView = (_req, res) => {
     res.render('about', {
         view:{ 
             title: "Acerca de mí || FunkoShop"
@@ -39,7 +34,7 @@ const aboutView = (req, res) => {
     })
 };
 
-const faqsView = (req, res) => {
+const faqsView = (_req, res) => {
 
     res.render('faqs', {
         view: {

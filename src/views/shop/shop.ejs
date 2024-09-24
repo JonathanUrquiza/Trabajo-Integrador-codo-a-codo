@@ -3,12 +3,12 @@
 
         <!-- Seccion lateral con filtros de busqueda y orden -->
         <aside class="shop__filters filters id="shop">
-            <form class="filters__form" action="http://localhost:3000/shop/items" method="get">
+            <form class="filters__form" action="http://localhost:8000/shop/item" method="get">
 
                 <!-- Buscar por item o categoria -->
                 <div class="filters__search">
                     <label class="filters__title" for="search">BUSCAR</label>
-                    <input class="input-text--box text-center" id="licence" type="text"name="licence" placeholder="Item o categoria">
+                    <input class="input-text--box text-center" id="licence" type="text"name="product_name" placeholder="Item o categoria">
                     <div class="d-flex flex-row w-100 justify-content-around">
                         <button type="submit"class="filters__title btn btn-sm btn-success my-4 ">Buscar</button>
                     <button type="submit"class="filters__title btn btn-sm btn-success my-4"><a href="shop">Ver todos</a></button>

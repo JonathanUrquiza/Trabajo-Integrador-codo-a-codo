@@ -53,8 +53,9 @@ app.disable('x-powered-by');// Elimina las cabeceras de datos, evitando problema
 console.log(isLogged);
 /* Rutas */
 
-app.use('/', auth, mainRoutes);//Falta hacerlo con sequelize
-app.use('/blogs', blogRoutes);//Este modelo permite ingresar comentarios de los compradores en el producto.
+app.use('/', auth, mainRoutes);//Falta hacerlo con sequelize, muestra todo lo repacionada mi perfil
+
+app.use('/blogs', blogRoutes);//Este modelo permite ingresar comentarios de los compradores en el producto. Comentario interno 
 app.use('/shop', auth, shopRoutes);//Falta hacerlo con sequelize
 app.use('/admin', auth, adminRoutes);//Falta hacerlo con sequelize
 app.use('/auth', auth, authRoutes);//Falta hacerlo con sequelize

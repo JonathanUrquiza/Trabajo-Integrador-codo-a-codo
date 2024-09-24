@@ -2,10 +2,11 @@
 const { conn } = require('../config/conn.js');
 
 
-
+//El siguiente codigo trae todos los banner de las distintas licencias
 const getAll = async () => {
   try {
     const [rows] = await conn.query('SELECT * FROM product;');
+    
     const response = {
       isError: false,
       data: rows
@@ -19,8 +20,33 @@ const getAll = async () => {
     return error
   } finally {
     conn.releaseConnection();
+    console.log('ultiliza itemModel.getAll');
   };
 }
+
+//Trae el item segun el id pasado por params
+const getOne = async (params) => {
+  try {
+    const [rows] = await conn.query('SELECT * FROM product WHERE ?', params);
+    
+    const response = {
+      isError: false,
+      data: rows
+    };
+    return response
+  } catch (e) {
+    const error = {
+      isError: true,
+      message: `No pudimos recuperar los datos.`
+    };
+    return error
+  } finally {
+    conn.releaseConnection()
+    console.log('ultiliza itemModel.getOne');
+  }
+}
+
+
 const getName = async (params) => {
   try {
     const [rows] = await conn.query('SELECT * FROM product WHERE ?', params);
@@ -37,27 +63,11 @@ const getName = async (params) => {
     return error
   } finally {
     conn.releaseConnection()
+    console.log('ultiliza itemModel.getName');
   };
 }
 
-const getOne = async (params) => {
-  try {
-    const [rows] = await conn.query('SELECT * FROM product WHERE ?', params);
-    const response = {
-      isError: false,
-      data: rows
-    };
-    return response
-  } catch (e) {
-    const error = {
-      isError: true,
-      message: `No pudimos recuperar los datos.`
-    };
-    return error
-  } finally {
-    conn.releaseConnection()
-  }
-}
+
 
 
 
@@ -82,6 +92,7 @@ const create = async (params) => {
       return error;
     } */ finally {
     conn.releaseConnection();
+    console.log('ultiliza itemModel.Create');
   }
 };
 
@@ -107,6 +118,7 @@ const edit = async (params, id) => {
     return error;
   } finally {
     await conn.releaseConnection();
+    console.log('ultiliza itemModel.edit');  
   }
 };
 
@@ -129,6 +141,7 @@ const deleteOne = async (params) => {
     return error;
   } finally {
     await conn.releaseConnection();
+    console.log('ultiliza itemModel.deleteOne');
   }
 }
 

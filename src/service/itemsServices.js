@@ -4,13 +4,16 @@ const getAllItems = async () => {
   return await ItemModel.getAll();
 }
 
+const getItem = async (id) => {
+  return await ItemModel.getOne({product_id: id});
+}
+
+
 const getAllItemsCollection = async (collection) => {
     return await ItemModel.getOne({collection: collection});
 };
 
-const getItem = async (id) => {
-  return await ItemModel.getOne({product_id: id});
-}
+
 const getProductName = async(name) => {
   return await ItemModel.getName({product_name: name})
 }

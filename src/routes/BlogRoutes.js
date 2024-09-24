@@ -7,8 +7,12 @@ const  {
     createBlog,
     updateBlog,
     deleteBlog
- } = require('../controllers/BlogController.js')
+} = require('../controllers/BlogController.js')
 
+/* Codiciones
+Este eendpoint no retorna nada, esta destinado a los comentarios y reseñas de los productos a vender
+
+ */
 router.get('/', getAllBlogs)
 router.get('/:id', getBlog)
 router.post('/', createBlog)

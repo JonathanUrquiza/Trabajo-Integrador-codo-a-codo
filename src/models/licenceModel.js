@@ -4,6 +4,7 @@ const getAll = async () => {
     //Este codigo es para usar php myadmin
     try {
         const [rows] = await conn.query('SELECT * FROM licence;');
+        
         const response = {
             isError : false,
             data: rows
@@ -15,8 +16,9 @@ const getAll = async () => {
             message:`No pudimos recuperar los datos ${e}`
         }
         return error
-    }finally {
+    }finally { 
         conn.releaseConnection();
+        console.log('utiliza licenceModel.getAll');
     }
     //Este codigo es paa usar la base de datos local
     /*try {

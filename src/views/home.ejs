@@ -58,7 +58,7 @@
             <article class="collection__content">
                 <h3 class="collection__title"><%= collection.licence_name %></h3>
                 <p class="collection__text"><%= collection.licence_description %></p>
-                <a href="/shop?filter=licence-<%= collection.licence_id %>" class="collection__link">Ver collección</a>
+                <a href="/shop?licence=licence-<%= collection.licence_id %>" class="collection__link">Ver collección</a>
             </article>
             <picture class="collection__cover">
                 <img src="/multimedia<%=  collection.licence_image%>" alt="">
