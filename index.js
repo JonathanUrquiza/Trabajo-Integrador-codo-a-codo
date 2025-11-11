@@ -1,10 +1,9 @@
-const express = require('express');//lama a express
-const app = express();//accede al metodo de express
-const cors = require('cors')
-require('dotenv').config();//llama a la configuración de la base de datos
+const express = require('express');
+const app = express();
+const cors = require('cors');
+require('dotenv').config();
 const path = require('path');
-const errorHandler = require('./src/utils/errorhandler.js');//metod para manejar la ruta inexistente.
-const { auth } = require('./src/middlewares/auth.js');//maneja la autorización de los datos.
+const errorHandler = require('./src/utils/errorhandler.js');
 const PORT = process.env.PORT || 3008;
 const { initSession } = require('./src/utils/session.js');
 const { isLogged } = require('./src/middlewares/login.js');
@@ -14,58 +13,46 @@ const picocolors = require('picocolors');
 
 
 
-/* Router */
+// Routes
 const mainRoutes = require('./src/routes/mainRoutes.js');
 const shopRoutes = require('./src/routes/shopRoutes.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
 const authRoutes = require('./src/routes/authRoutes.js');
 const TestRoutes = require('./src/routes/TestRoutes.js');
-/* middleware */
-/* El middleware sirve para convertir la información a un formato que el servidor puede entender */
-app.use(express.static(path.resolve(__dirname, 'public')));//define la carpeta publica de estáticos.
 
+// Middleware
+app.use(express.static(path.resolve(__dirname, 'public')));
 
-//Sesion de usuario
-app.use(initSession())//Esta sesion crea una coockie con la informacion del cliente
+// Session
+app.use(initSession());
 app.use((req, res, next) => {
-  res.locals.isLogged = req.session.isLogged;//Este middleware a nivel app, y caca vez qeu el usuario haga un peticion, le asigna a locals lo que traiga de la session, retorna true o false
+  res.locals.isLogged = req.session.isLogged;
   next();
 });
 
-
-
-//Configuración del template engine - ejs
+// Template engine - EJS
 app.set('view engine', 'ejs');
-app.set('views', path.resolve(__dirname,'./src/views'));
+app.set('views', path.resolve(__dirname, './src/views'));
+
+// Body parser & CORS
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+app.disable('x-powered-by');
 
 
 
-app.use(express.urlencoded())//para evitar tenes que formatear los tipos de datos para que el servidor pueda leerlos 
-app.use(express.json())//para evitar tenes que formatear los tipos de datos para que el servidor pueda leerlos 
-app.use(cors())
-app.disable('x-powered-by');// Elimina las cabeceras de datos, evitando problemas de seguridad
 
+// Routes
+app.use('/', mainRoutes);
+app.use('/shop', shopRoutes);
+app.use('/admin', adminRoutes);
+app.use('/auth', authRoutes);
+app.use('/test', TestRoutes);
 
-
-
-console.log(isLogged);
-/* Rutas */
-
-app.use('/', auth, mainRoutes);//Falta hacerlo con sequelize, muestra todo lo repacionada mi perfil
-app.use('/shop', auth, shopRoutes);//Falta hacerlo con sequelize
-app.use('/admin', auth, adminRoutes);//Falta hacerlo con sequelize
-app.use('/auth', auth, authRoutes);//Falta hacerlo con sequelize
-app.use('/test', TestRoutes)
-
-try {
-  db.authenticate()
-  console.log(picocolors.green(' Conexion exitosa a DB '));
-} catch (error) {
-  console.error(picocolors.red(` el error de conexión es: ${error} `));
-}
-
-/* middleware, server error, nos permite controlar el flujo delos datos */
-
+// Error handler - Must be last
 app.use(errorHandler[404]);
 
-app.listen(PORT, () => console.log(picocolors.bold(picocolors.green(` 🚀 Servidor corriendo en: http://localhost:${PORT} `))))
+app.listen(PORT, () => {
+    console.log(picocolors.bold(picocolors.green(` 🚀 Servidor corriendo en: http://localhost:${PORT} `)));
+});

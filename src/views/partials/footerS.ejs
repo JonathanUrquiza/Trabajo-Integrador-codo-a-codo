@@ -1,21 +1,22 @@
 <footer class="footer">
     <nav class="navbar container">
         <ul class="navbar__item">
-            <li class="navbar__item"><a href="shop.html" class="navbar__link">SHOP</a></li>
-            <li class="navbar__item"><a href="../login.html" class="navbar__link">INGRESAR</a></li>
-            <li class="navbar__item"><a href="../contact.html" class="navbar__link">CONTACTO </a></li>
+            <li class="navbar__item"><a href="/shop/shop" class="navbar__link">SHOP</a></li>
+            <li class="navbar__item"><a href="/auth/login" class="navbar__link">INGRESAR</a></li>
+            <li class="navbar__item"><a href="/contact" class="navbar__link">CONTACTO</a></li>
         </ul>
         <picture>
-            <img class="logo" src="../../multimedia/branding/isotype.svg" alt="Iso tipo de la marca funkoshop">
+            <img class="logo" src="/multimedia/branding/isotype.svg" alt="Isotipo de la marca FunkoShop">
         </picture>
     </nav>
-    <P class="footer__copy">All rights reserved 2023 -Funkoshop & Grupo 2 Comisión 23569</P>
+    <p class="footer__copy">All rights reserved <%= new Date().getFullYear() %> - FunkoShop</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
-<script src="../../js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-<script src="../../js/shop.js" type="module"></script>
-<script src="../../js/glide.js"></script>
+<% if (locals.enableGlide) { %>
+<script src="/js/glide.js"></script>
+<% } %>
 </body>
 
 </html>

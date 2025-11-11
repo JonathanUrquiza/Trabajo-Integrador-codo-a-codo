@@ -66,6 +66,6 @@ module.exports = {
   getAllItemsCollection,
   getProductName,
   create : createItem,
-  edit : deleteItem,
-  delete : editItem,
+  edit : editItem,
+  delete : deleteItem,
 }

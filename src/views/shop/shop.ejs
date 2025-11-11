@@ -1,20 +1,18 @@
 <%- include('../partials/headerS') %>
-    <main class="container container--main container--shop" id="">
-
-        <!-- Seccion lateral con filtros de busqueda y orden -->
-        <aside class="shop__filters filters id="shop">
-            <form class="filters__form" action="http://localhost:8000/shop/item" method="get">
-
-                <!-- Buscar por item o categoria -->
+    <main class="container container--main container--shop">
+        <!-- Sección lateral con filtros de búsqueda y orden -->
+        <aside class="shop__filters filters" id="shop">
+            <form class="filters__form" action="/shop/item" method="get">
+                <!-- Buscar por item o categoría -->
                 <div class="filters__search">
                     <label class="filters__title" for="search">BUSCAR</label>
-                    <input class="input-text--box text-center" id="licence" type="text"name="product_name" placeholder="Item o categoria">
+                    <input class="input-text--box text-center" id="licence" type="text" name="product_name" placeholder="Item o categoría">
                     <div class="d-flex flex-row w-100 justify-content-around">
-                        <button type="submit"class="filters__title btn btn-sm btn-success my-4 ">Buscar</button>
-                    <button type="submit"class="filters__title btn btn-sm btn-success my-4"><a href="shop">Ver todos</a></button>
+                        <button type="submit" class="filters__title btn btn-sm btn-success my-4">Buscar</button>
+                        <a href="/shop/shop" class="filters__title btn btn-sm btn-secondary my-4">Ver todos</a>
                     </div>
                 </div>
-</form>
+            </form>
 <form class="filters__form" action="" method="get">
                 <!-- Ordenar items -->
                 <div class="filters__order">

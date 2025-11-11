@@ -1,11 +1,7 @@
-const intemsSerice = require('../service/itemsServices.js')
+const itemsService = require('../service/itemsServices.js')
 
-/* El controlador respoden las peticiones de las rutsa*/
 const shopView = async (_req, res) => {
-    /* Este código trae todos los items de la base de datos */
-    const items = await intemsSerice.getAllItems();
-    console.log('Se ejecuta desde shopController ==> shopview');
-    
+    const items = await itemsService.getAllItems();
     const { data } = items;
     res.render('../views/shop/shop', {
         view: {
@@ -14,11 +10,9 @@ const shopView = async (_req, res) => {
         items: data
     });
 }
-//Este controlador muestra cada item en detalle
 const itemView = async (req, res) => {
     const id = req.params.id;   
-    const item = await intemsSerice.getItem(id);
-    console.log('Se ejecuta desde shopController ==> itemview');
+    const item = await itemsService.getItem(id);
     const { data } = item;
     res.render('../views/shop/item', {
         view: {
@@ -28,11 +22,9 @@ const itemView = async (req, res) => {
         enableGlide: true
     })
 }
-//contrlador para la ruta /shop/items:licence del landingpage
 const getIlicence = async (req, res) => {
     const licence  = req.query.licence;
-    const items = await intemsSerice.getAllItemsCollection(licence);
-    console.log('Se ejecuta desde shopController ==> getIlicence');
+    const items = await itemsService.getAllItemsCollection(licence);
     const { data } = items
     res.render('../views/shop/shop', {
         view: {
@@ -45,7 +37,6 @@ const getIlicence = async (req, res) => {
 
 
 const getItem = async (req, res) => {
-    console.log('Se ejecuta desde shopController ==> getItem');
     res.render('../views/shop/cart',  {
         view: {
             title: "Cart|| FunkoShop"
@@ -54,26 +45,20 @@ const getItem = async (req, res) => {
 }
 
 
-//Busca el producot por nombre
 const productName = async (req, res) => {
     const name = req.query.product_name;
-    const item = await intemsSerice.getProductName(name)
-    console.log(item);
-    
-    console.log('Se ejecuta desde shopController ==> productName');
+    const item = await itemsService.getProductName(name)
     const { data } = item;
 
-res.render('../views/shop/item', {
-    view: {
-        title: "Item|| FunkoShop"
-    },
-    item: data,
-    enableGlide: true
-})
-
-
+    res.render('../views/shop/item', {
+        view: {
+            title: "Item|| FunkoShop"
+        },
+        item: data,
+        enableGlide: true
+    })
 }
-const checout = (req, res) => {
+const checkout = (req, res) => {
     res.send('Checkout logic')
 }
 const postAdd = (req, res) => {
@@ -85,7 +70,6 @@ module.exports = {
     shopView,
     getItem,
     productName,
-    checout,
+    checkout,
     postAdd
-    
 }

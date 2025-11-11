@@ -15,10 +15,9 @@ const adminView = async (req, res) => {
 
 const editView = async (req, res) => {
     const id = req.params.id;
-    const { data: categories } = await itemsService.getAllItems();//Revisar estas consultas!
+    const { data: categories } = await itemsService.getAllItems();
     const { data: licences } = await itemsService.getAllItemsCollection();
     const { data } = await itemsService.getItem(id);
-    console.log(categories, licences);
     res.render('admin/edit', {
         view: {
             title:`Edit Product #${id} | adming FunkoShop`
@@ -37,8 +36,6 @@ const editpost = async (req, res) => {
 const createView = async (req, res) => {
     const { data: categories } = await itemsService.getAllItems();
     const { data: licences } = await licencesSerice.getAllItemsLicence();
-    console.log(licences);
-    console.log('espacio');
     res.render('admin/create', {
         view: {
             title: 'Create || FunkoShop'

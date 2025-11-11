@@ -1,8 +1,5 @@
-/* Aca se hacen todas las consultas a la DATABSE */
 const { conn } = require('../config/conn.js');
 
-
-//El siguiente codigo trae todos los banner de las distintas licencias
 const getAll = async () => {
   try {
     const [rows] = await conn.query('SELECT * FROM product;');
@@ -18,13 +15,9 @@ const getAll = async () => {
       message: `No pudimos recuperar los datos ${e}`
     };
     return error
-  } finally {
-    conn.releaseConnection();
-    console.log('ultiliza itemModel.getAll');
   };
 }
 
-//Trae el item segun el id pasado por params
 const getOne = async (params) => {
   try {
     const [rows] = await conn.query('SELECT * FROM product WHERE ?', params);
@@ -40,9 +33,6 @@ const getOne = async (params) => {
       message: `No pudimos recuperar los datos.`
     };
     return error
-  } finally {
-    conn.releaseConnection()
-    console.log('ultiliza itemModel.getOne');
   }
 }
 
@@ -61,9 +51,6 @@ const getName = async (params) => {
       message: `No pudimos realizar la consulta.`
     };
     return error
-  } finally {
-    conn.releaseConnection()
-    console.log('ultiliza itemModel.getName');
   };
 }
 
@@ -83,21 +70,14 @@ const create = async (params) => {
     };
 
     return response;
-  }/*  catch (e) {
-      const error = {
-        isError: true,
-        message: `No pudimos crear los valores seleccionados por: ${e}`
-      };
-  
-      return error;
-    } */ finally {
-    conn.releaseConnection();
-    console.log('ultiliza itemModel.Create');
+  } catch (e) {
+    const error = {
+      isError: true,
+      message: `No pudimos crear los valores seleccionados por: ${e}`
+    };
+    return error;
   }
 };
-
-
-
 
 const edit = async (params, id) => {
   try {
@@ -116,9 +96,6 @@ const edit = async (params, id) => {
     };
 
     return error;
-  } finally {
-    await conn.releaseConnection();
-    console.log('ultiliza itemModel.edit');  
   }
 };
 
@@ -139,9 +116,6 @@ const deleteOne = async (params) => {
     };
 
     return error;
-  } finally {
-    await conn.releaseConnection();
-    console.log('ultiliza itemModel.deleteOne');
   }
 }
 

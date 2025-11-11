@@ -11,13 +11,12 @@ const {
     deleteItem
 } = require('../controllers/adminController.js')
 
-
 router.use(isLogged);
-router.get('/',adminView)
-router.get('/create', createView)
-router.post('/create', uploadFiles.array('images',2),createItem);//Aca va el uploadFiles
-router.get('/edit/:id', editView)
-router.put('/edit/:id', editpost)
-router.delete('/delete/:id', deleteItem)
+router.get('/', adminView);
+router.get('/create', createView);
+router.post('/create', uploadFiles.array('images', 2), createItem);
+router.get('/edit/:id', editView);
+router.put('/edit/:id', editpost);
+router.delete('/delete/:id', deleteItem);
 
 module.exports = router;

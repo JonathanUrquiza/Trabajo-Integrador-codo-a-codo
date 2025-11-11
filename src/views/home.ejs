@@ -1,70 +1,26 @@
 <%- include('partials/header') %>
 
-<section class="hero text-center px-4 py-5"><!-- Inicio de BANNER -->
+<section class="hero text-center px-4 py-5">
     <article class="container hero__content display-5">
         <h3 class="hero__title">Nuevos Ingresos</h3>
         <div class="hero__info">
-            <p class="hero__text lead">Desubrí el próximo Funko Pop de tu colección</p>
-            <a class="hero__link btn" href="shop/shop">SHOP</a>
+            <p class="hero__text lead">Descubrí el próximo Funko Pop de tu colección</p>
+            <a class="hero__link btn" href="/shop/shop">SHOP</a>
         </div>
-            
     </article>
-    <!-- LA imagen va de fondo -->
-</section><!-- Fin de BANNER -->
+</section>
+
 <main class="main-container">
-    <!-- Inicia catalog de muestra -->    
- <!--    <section class="collection container">
-        <article class="collection__content">
-            <h3 class="collection__title">Star Wars & The mandalorian</h3>
-            <p class="collection__text">Disfruta de una saga que sigue agregando personajes a su colección</p>
-            <div class="divider"></div>
-            <a href="shop/items?licence=starwars" class="collection__link">VER COLECCIÓN</a>
-        </article>
-        <picture class="collection__cover">
-            <img src="multimedia/star-wars/baby-yoda-1.webp"
-                alt="Figura coleccionable Funko de Grogu de la serie The Mandalorian">
-        </picture>
-    </section>
-
-    <section class="collection container">
-        <article class="collection__content">
-            <h3 class="collection__title">POKEMON INDIGO</h3>
-            <p class="collection__text">Atrapa todos los que puedas y disfruta de una colección llena de amigos</p>
-
-            <a href="shop/items?licence=pokemon" class="collection__link">VER COLECCIÓN</a>
-        </article>
-        <picture class="collection__cover">
-            <img src="multimedia/pokemon/vulpix-1.webp"
-                alt="Figura coleccionable Funko del Patronus de snape en la pelicula de harry potter.">
-        </picture>
-    </section>
-
-
-
-    <section class="collection container">
-        <article class="collection__content">
-            <h3 class="collection__title">HARRY POTTER</h3>
-            <p class="collection__text">Revive los recuerdos de una saga llena de magia y encanto</p>
-            <a href="/shop/items?licence=harrypotter" class="collection__link">VER COLECCIÓN</a>
-        </article>
-        <picture class="collection__cover">
-            <img src="multimedia/harry-potter/snape-patronus-1.webp"
-                alt="Figura coleccionable Funko del Patronus de snape en la pelicula de harry potter.">
-        </picture>
-    </section> -->
-    
+    <!-- Colecciones dinámicas desde la base de datos -->
     <% collections.forEach(collection => { %>
         <section class="collection container">
             <article class="collection__content">
                 <h3 class="collection__title"><%= collection.licence_name %></h3>
                 <p class="collection__text"><%= collection.licence_description %></p>
-                <a href="/shop?licence=licence-<%= collection.licence_id %>" class="collection__link">Ver collección</a>
+                <a href="/shop/items?licence=<%= collection.licence_name.toLowerCase() %>" class="collection__link">VER COLECCIÓN</a>
             </article>
             <picture class="collection__cover">
-                <img src="/multimedia<%=  collection.licence_image%>" alt="">
-                <!-- Copiar la imagen del funk y ponerle PK-COVER segun corresponda dentro de una carpeta img 
-                Tambien recordar que los modulos ItemService y LicenceService fueron modificados para funcionar con la base de datos modificada del proyecto.
-                -->
+                <img src="/multimedia<%= collection.licence_image %>" alt="Colección <%= collection.licence_name %>">
             </picture>
         </section>
     <% }) %>

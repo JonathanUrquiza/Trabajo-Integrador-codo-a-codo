@@ -1,12 +1,11 @@
 const multer = require('multer');
 const path = require('path');
 
-
-/* Lógica para guardar imagenes en el server */
-
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => cb(null,path.resolve(__dirname, '../../public/multimedia/uploads')),
+    destination: (req, file, cb) => cb(null, path.resolve(__dirname, '../../public/multimedia/uploads')),
     filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)
 })
-const ulpladFiles = multer({storage});
-module.exports = ulpladFiles
+
+const uploadFiles = multer({ storage });
+
+module.exports = uploadFiles;

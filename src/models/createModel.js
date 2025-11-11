@@ -15,7 +15,5 @@ const createTable = async (table) => {
             message: `No se pudo crear la tabla de datos debido a ${e}`
         }
         return error
-    }finally {
-        conn.releaseConnection();
     }
 }
